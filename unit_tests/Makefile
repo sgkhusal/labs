@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:15:28 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/10 14:09:40 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/10 17:38:52 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,9 @@ NAME =			unit_test
 SRCS =			main.c \
 				frequency_test.c \
 				list_test.c \
+				tree_test.c \
 				$(FUNCTIONS_SRCS)
-FUNCTIONS_SRCS = frequency.c list.c utils.c sort.c
+FUNCTIONS_SRCS = frequency.c list.c utils.c tree.c
 
 OBJS_DIR =		./obj
 OBJS	=		$(SRCS:%.c=$(OBJS_DIR)/%.o)

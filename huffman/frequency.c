@@ -6,33 +6,33 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:33:44 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 14:53:37 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:50:26 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "huffman.h"
 
-int	*huffman_frequency(char *str)
+unsigned int	*huffman_frequency(char *str)
 {
-	int	*freq;
-	int	i;
+	unsigned int	*freq;
+	unsigned int	i;
 
 	freq = init_frequency();
 	i = 0;
 	while (str[i])
 	{
-		freq[i]++;
+		freq[(int) str[i]]++;
 		i++;
 	}
 	return (freq);
 }
 
-int	*init_frequency(void)
+unsigned int	*init_frequency(void)
 {
-	int	*freq;
-	int	i;
+	unsigned int	*freq;
+	unsigned int	i;
 
-	freq = (int *)malloc(sizeof(int) * ASCII_SIZE);
+	freq = (unsigned int *)malloc(sizeof(unsigned int) * ASCII_SIZE);
 	i = 0;
 	while (i < ASCII_SIZE)
 	{

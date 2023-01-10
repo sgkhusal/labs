@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:11:12 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 14:46:58 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/10 17:57:37 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,24 @@ static void	create_node_test(void)
 	free(node);
 }
 
-static void	huffman_lstadd_test(void)
+static void	huffman_lstadd_sort_test(void)
 {
 	t_huffman	*node1;
 	t_huffman	*node2;
 	t_huffman	*head;
 
-	printf(GREY "huffman_lstadd_test 1: " END);
+	printf(GREY "huffman_lstadd_sort_test 1: " END);
 	head = NULL;
 	node1 = create_huffman_node(42, 's');
-	huffman_lstadd(&head, node1);
+	huffman_lstadd_sort(&head, node1);
 	if (head->c == 's' && head->weight == 42
 		&& !head->next && !head->left && !head->right)
 		printf(GREEN "OK" END "\n");
 	else
 		printf(RED "KO" END "\n");
-	printf(GREY "huffman_lstadd_test 2: " END);
+	printf(GREY "huffman_lstadd_sort_test 2: " END);
 	node2 = create_huffman_node(1024, 'j');
-	huffman_lstadd(&head, node2);
+	huffman_lstadd_sort(&head, node2);
 	if (head->next && head->next == node2
 		&&head->next->c == 'j' && head->next->weight == 1024
 		&& !head->next->next && !head->next->left && !head->next->right)
@@ -77,35 +77,21 @@ static void	print_lst(t_huffman	*lst)
 
 static void	create_huffman_lst_test(void)
 {
-	int			*freq;
+	unsigned int			*freq;
 	t_huffman	*head;
 
-	printf(GREY "create_huffman_lst_test: " END);
-	freq = huffman_frequency("Hello world");
+	printf(GREY "create_huffman_lst_test:\n" END);
+	freq = huffman_frequency(TEST);
 	head = create_huffman_lst(freq);
 	free(freq);
-	print_lst(head);
-	free_huffman_lst(&head);
-}
-
-static void	huffman_lstsort_test(void)
-{
-	int			*freq;
-	t_huffman	*head;
-
-	printf(GREY "huffman_lstsort_test: " END);
-	freq = huffman_frequency("Hello world");
-	head = create_huffman_lst(freq);
-	free(freq);
-	huffman_lstsort(head);
 	print_lst(head);
 	free_huffman_lst(&head);
 }
 
 void	huffman_lst_tests(void)
 {
+	printf(YELLOW "Huffan Coding - list tests: " END "\n");
 	create_node_test();
-	huffman_lstadd_test();
+	huffman_lstadd_sort_test();
 	create_huffman_lst_test();
-	huffman_lstsort_test();
 }

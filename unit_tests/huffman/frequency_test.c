@@ -6,15 +6,15 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:37:07 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 13:20:24 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/10 17:27:34 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unit_tests.h"
 
-static	int	check_zeros(int *result)
+static	int	check_zeros(int unsigned *result)
 {
-	int	i;
+	unsigned int	i;
 
 	i = -1;
 	while (++i < ASCII_SIZE)
@@ -28,7 +28,7 @@ static	int	check_zeros(int *result)
 
 static void	frequency_test1(void)
 {
-	int	*result;
+	unsigned int	*result;
 
 	printf(GREY "frequency_test 1: " END);
 	result = huffman_frequency("Hello world");
@@ -43,7 +43,7 @@ static void	frequency_test1(void)
 
 static void	frequency_test2(void)
 {
-	int	*result;
+	unsigned int	*result;
 
 	printf(GREY "frequency_test 2: " END);
 	result = huffman_frequency("");
@@ -53,12 +53,13 @@ static void	frequency_test2(void)
 
 static void	frequency_test3(void)
 {
-	int	*result;
+	unsigned int	*result;
 
 	printf(GREY "frequency_test 3: " END);
-	result = huffman_frequency("\t\n\v\f\r");
+	result = huffman_frequency("\t\n\v\f\rçãÃ");
 	if (result['\t'] == 1 && result['\n'] == 1 && result['\v'] == 1
 		&& result['\f'] == 1 && result['\r'] == 1)
+		//&& result[(unsigned char)('Ã')] == 1)
 		printf(GREEN "OK" END "\n");
 	else
 		printf(RED "KO" END "\n");
@@ -67,7 +68,7 @@ static void	frequency_test3(void)
 
 static void	init_frequency_test(void)
 {
-	int	*result;
+	unsigned int	*result;
 
 	printf(GREY "init_frequency_test: " END);
 	result = init_frequency();

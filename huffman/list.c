@@ -6,13 +6,13 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:02:49 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 14:50:01 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/10 17:57:37 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "huffman.h"
 
-t_huffman	*create_huffman_node(int freq, char c)
+t_huffman	*create_huffman_node(unsigned int freq, char c)
 {
 	t_huffman	*node;
 
@@ -27,7 +27,7 @@ t_huffman	*create_huffman_node(int freq, char c)
 	return (node);
 }
 
-void	huffman_lstadd(t_huffman **head, t_huffman *node)
+void	huffman_lstadd_sort(t_huffman **head, t_huffman *node)
 {
 	t_huffman	*aux;
 
@@ -36,26 +36,30 @@ void	huffman_lstadd(t_huffman **head, t_huffman *node)
 		*head = node;
 		return ;
 	}
+	if ((*head)->weight > node->weight)
+	{
+		node->next = *head;
+		*head = node;
+		return ;
+	}
 	aux = *head;
-	while (aux->next)
+	while (aux->next && aux->next->weight <= node->weight)
 		aux = aux->next;
+	node->next = aux->next;
 	aux->next = node;
-	aux = aux->next;
 }
 
-t_huffman	*create_huffman_lst(int *freq)
+t_huffman	*create_huffman_lst(unsigned int *freq)
 {
-	t_huffman	*head;
-	int			i;
+	t_huffman		*head;
+	unsigned int	i;
 
 	i = 0;
 	head = NULL;
 	while (i < ASCII_SIZE)
 	{
 		if (freq[i] > 0)
-		{
-			huffman_lstadd(&head, create_huffman_node(freq[i], i));
-		}
+			huffman_lstadd_sort(&head, create_huffman_node(freq[i], i));
 		i++;
 	}
 	return (head);

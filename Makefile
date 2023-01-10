@@ -6,15 +6,16 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:09:19 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/10 14:58:59 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/10 17:52:47 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =			compression_analysis
-ENCODER =		./encoder/encoder
-DECODER =		./decoder/decoder
-ENCODER_PATH =	./encoder
-DECODER_PATH =	./decoder
+NAME =				compression_analysis
+ENCODER =			./encoder/encoder
+DECODER =			./decoder/decoder
+ENCODER_PATH =		./encoder
+DECODER_PATH =		./decoder
+UNIT_TESTS_PATH =	./unit_tests
 
 # INPUTS
 
@@ -61,6 +62,9 @@ $(OBJS_DIR):
 $(ENCODER):
 	$(MAKE) --no-print-directory -C $(ENCODER_PATH)
 
+test:
+		@$(MAKE) --no-print-directory -C ./unit_tests test
+
 clean:
 		$(RM_DIR) $(OBJS_DIR)
 		@$(MAKE) --no-print-directory -C $(ENCODER_PATH) clean
@@ -68,6 +72,7 @@ clean:
 fclean:		clean
 		$(RM) $(NAME)
 		@$(MAKE) --no-print-directory -C $(ENCODER_PATH) fclean
+		@$(MAKE) --no-print-directory -C $(UNIT_TESTS_PATH) fclean
 
 re:			fclean all
 
