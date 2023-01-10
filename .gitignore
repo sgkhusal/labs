@@ -4,6 +4,6 @@ obj
 
 # Executables
 compression_analysis
-unit_tests
+unit_test
 encoder.out
 decoder.out
