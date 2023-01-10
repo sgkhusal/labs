@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:03:55 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 17:48:01 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/10 18:42:54 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ static void	print_tree(t_huffman *node, int dist)
 
 static void	create_huffman_tree_test(void)
 {
-	unsigned int			*freq;
-	t_huffman	*head;
+	unsigned int	*freq;
+	t_huffman		*head;
 
 	printf(GREY "create_huffman_tree_test:\n" END);
 	freq = huffman_frequency(TEST);

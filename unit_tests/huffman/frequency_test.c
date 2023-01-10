@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:37:07 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 17:27:34 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/10 18:45:46 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,12 @@ static void	frequency_test3(void)
 	unsigned int	*result;
 
 	printf(GREY "frequency_test 3: " END);
-	result = huffman_frequency("\t\n\v\f\rçãÃ");
+	result = huffman_frequency((unsigned char *)"\t\n\v\f\rçãÃ");
 	if (result['\t'] == 1 && result['\n'] == 1 && result['\v'] == 1
-		&& result['\f'] == 1 && result['\r'] == 1)
-		//&& result[(unsigned char)('Ã')] == 1)
+		&& result['\f'] == 1 && result['\r'] == 1
+		&& result[131] == 1
+		&& result[163] == 1
+		&& result[167] == 1)
 		printf(GREEN "OK" END "\n");
 	else
 		printf(RED "KO" END "\n");

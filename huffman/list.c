@@ -6,13 +6,13 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:02:49 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 17:57:37 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/10 18:19:45 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "huffman.h"
 
-t_huffman	*create_huffman_node(unsigned int freq, char c)
+t_huffman	*create_huffman_node(unsigned int freq, unsigned char c)
 {
 	t_huffman	*node;
 
