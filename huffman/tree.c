@@ -1,43 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   frequency.c                                        :+:      :+:    :+:   */
+/*   tree.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 10:33:44 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 14:53:37 by sguilher         ###   ########.fr       */
+/*   Created: 2023/01/10 12:07:20 by sguilher          #+#    #+#             */
+/*   Updated: 2023/01/10 14:50:09 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "huffman.h"
-
-int	*huffman_frequency(char *str)
-{
-	int	*freq;
-	int	i;
-
-	freq = init_frequency();
-	i = 0;
-	while (str[i])
-	{
-		freq[i]++;
-		i++;
-	}
-	return (freq);
-}
-
-int	*init_frequency(void)
-{
-	int	*freq;
-	int	i;
-
-	freq = (int *)malloc(sizeof(int) * ASCII_SIZE);
-	i = 0;
-	while (i < ASCII_SIZE)
-	{
-		freq[i] = 0;
-		i++;
-	}
-	return (freq);
-}

@@ -1,43 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   frequency.c                                        :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 10:33:44 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 14:53:37 by sguilher         ###   ########.fr       */
+/*   Created: 2023/01/10 13:28:21 by sguilher          #+#    #+#             */
+/*   Updated: 2023/01/10 13:29:36 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "huffman.h"
+#ifndef UTILS_H
+# define UTILS_H
 
-int	*huffman_frequency(char *str)
-{
-	int	*freq;
-	int	i;
+# include <stdio.h>
+# include <stdlib.h>
 
-	freq = init_frequency();
-	i = 0;
-	while (str[i])
-	{
-		freq[i]++;
-		i++;
-	}
-	return (freq);
-}
+void	malloc_error(char *str);
 
-int	*init_frequency(void)
-{
-	int	*freq;
-	int	i;
-
-	freq = (int *)malloc(sizeof(int) * ASCII_SIZE);
-	i = 0;
-	while (i < ASCII_SIZE)
-	{
-		freq[i] = 0;
-		i++;
-	}
-	return (freq);
-}
+#endif

@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:37:27 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 11:42:26 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/10 14:47:08 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@
 # define END "\033[0m"
 
 void	frequency_tests(void);
+void	huffman_lst_tests(void);
 
 #endif

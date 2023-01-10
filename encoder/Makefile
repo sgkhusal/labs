@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:09:19 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/10 11:12:50 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/10 14:51:53 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,14 @@ NAME =			encoder.out
 
 # INPUTS
 
-SRCS =			main.c frequency.c
+SRCS =			main.c $(HUFFMAN)
+HUFFMAN =		huffman_coding.c frequency.c list.c utils.c sort.c
 OBJS_DIR =		./obj
 OBJS	=		$(SRCS:%.c=$(OBJS_DIR)/%.o)
 
 HEADERS	=		huffman.h
 VPATH	=		../huffman
-INCLUDE	=		-I./ -I../huffman
+INCLUDE	=		-I./ -I../includes -I../huffman
 
 # compilation
 CC =		gcc

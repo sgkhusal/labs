@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:38:26 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 11:42:29 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/10 14:47:05 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 int	main(void)
 {
 	frequency_tests();
+	huffman_lst_tests();
 	return (0);
 }

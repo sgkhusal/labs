@@ -7,3 +7,6 @@ compression_analysis
 unit_test
 encoder.out
 decoder.out
+
+#others
+.vscode

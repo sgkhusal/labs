@@ -6,13 +6,13 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:37:07 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 11:56:31 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/10 13:20:24 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unit_tests.h"
 
-static	int check_zeros(int *result)
+static	int	check_zeros(int *result)
 {
 	int	i;
 
@@ -38,6 +38,7 @@ static void	frequency_test1(void)
 		printf(GREEN "OK" END "\n");
 	else
 		printf(RED "KO" END "\n");
+	free(result);
 }
 
 static void	frequency_test2(void)
@@ -47,6 +48,7 @@ static void	frequency_test2(void)
 	printf(GREY "frequency_test 2: " END);
 	result = huffman_frequency("");
 	check_zeros(result);
+	free(result);
 }
 
 static void	frequency_test3(void)
@@ -60,15 +62,17 @@ static void	frequency_test3(void)
 		printf(GREEN "OK" END "\n");
 	else
 		printf(RED "KO" END "\n");
+	free(result);
 }
 
 static void	init_frequency_test(void)
 {
-	int *result;
+	int	*result;
 
 	printf(GREY "init_frequency_test: " END);
 	result = init_frequency();
 	check_zeros(result);
+	free(result);
 }
 
 void	frequency_tests(void)

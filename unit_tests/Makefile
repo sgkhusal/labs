@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:15:28 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/10 10:44:46 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/10 14:09:40 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,9 @@ NAME =			unit_test
 
 SRCS =			main.c \
 				frequency_test.c \
+				list_test.c \
 				$(FUNCTIONS_SRCS)
-FUNCTIONS_SRCS = frequency.c
+FUNCTIONS_SRCS = frequency.c list.c utils.c sort.c
 
 OBJS_DIR =		./obj
 OBJS	=		$(SRCS:%.c=$(OBJS_DIR)/%.o)
@@ -25,8 +26,8 @@ OBJS	=		$(SRCS:%.c=$(OBJS_DIR)/%.o)
 HEADERS	=		unit_tests.h
 
 VPATH_FUNCTIONS =	../huffman
-VPATH	=		$(VPATH_FUNCTIONS) huffman
-INCLUDE	=		-I ./ -I ../huffman
+VPATH	=		$(VPATH_FUNCTIONS) huffman includes
+INCLUDE	=		-I ./ -I ../includes -I ../huffman
 
 # compilation
 CC =		gcc
