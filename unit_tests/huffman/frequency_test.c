@@ -6,13 +6,13 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:37:07 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 18:45:46 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:23:06 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unit_tests.h"
 
-static	int	check_zeros(int unsigned *result)
+static	int	check_zeros(unsigned int *result)
 {
 	unsigned int	i;
 
@@ -26,18 +26,28 @@ static	int	check_zeros(int unsigned *result)
 	return (0);
 }
 
+static void	print_frequency(unsigned int *f)
+{
+	for (int i = 0; i < ASCII_SIZE; i++)
+	{
+		if (f[i] > 0)
+			printf("%d\t|%c|\t%d\n", i, i, f[i]);
+	}
+}
+
 static void	frequency_test1(void)
 {
 	unsigned int	*result;
 
 	printf(GREY "frequency_test 1: " END);
-	result = huffman_frequency("Hello world");
+	result = huffman_frequency((unsigned char *)"Hello world maçã");
 	if (result['H'] == 1 && result['e'] == 1 && result['l'] == 3
 		&& result['o'] == 2 && result['w'] == 1 && result['r'] == 1
 		&& result['d'] == 1)
 		printf(GREEN "OK" END "\n");
 	else
 		printf(RED "KO" END "\n");
+	print_frequency(result);
 	free(result);
 }
 
@@ -46,7 +56,7 @@ static void	frequency_test2(void)
 	unsigned int	*result;
 
 	printf(GREY "frequency_test 2: " END);
-	result = huffman_frequency("");
+	result = huffman_frequency((unsigned char *)"");
 	check_zeros(result);
 	free(result);
 }

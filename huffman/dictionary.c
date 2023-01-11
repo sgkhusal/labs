@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:49:04 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/11 01:05:11 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:04:59 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,9 @@ static void	fill_dictionary(char **dictionary, t_huffman *branch, int columns,
 		strcpy(dictionary[branch->c], bits);
 	else
 	{
-		strcpy(left, bits);
-		strcpy(right, bits);
-		strcat(left, "0");
-		strcat(right, "1");
+		strcat(strcpy(left, bits), "0");
 		fill_dictionary(dictionary, branch->left, columns, left);
+		strcat(strcpy(right, bits), "1");
 		fill_dictionary(dictionary, branch->right, columns, right);
 	}
 }

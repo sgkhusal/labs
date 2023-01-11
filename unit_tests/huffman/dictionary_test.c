@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:22:31 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/11 01:06:59 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:27:46 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	dictionary_test(unsigned char *str)
 	char			**d;
 	static int		n = 1;
 
-	printf(GREY "tree_height_test %d: \n" END, n);
+	printf(GREY "dictionary_test %d: \n" END, n);
 	freq = huffman_frequency(str);
 	head = create_huffman_lst(freq);
 	free(freq);
@@ -48,6 +48,6 @@ void	dictionary_tests(void)
 {
 	printf(YELLOW "Huffan Coding - dictionary tests: " END "\n");
 	dictionary_test((unsigned char *)TEST1);
-	dictionary_test((unsigned char *)"maçaçç");
-	//dictionary_test((unsigned char *)TEST2);
+	dictionary_test((unsigned char *)"maçãçç");
+	dictionary_test((unsigned char *)TEST2);
 }

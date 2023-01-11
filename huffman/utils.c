@@ -6,13 +6,13 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:27:45 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 13:29:29 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:09:22 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-void	malloc_error(char *str)
+void	malloc_error(const char *str)
 {
 	printf("Malloc error at %s\n", str);
 	exit(1);
