@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:15:28 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/10 17:38:52 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/11 00:28:25 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,9 @@ SRCS =			main.c \
 				frequency_test.c \
 				list_test.c \
 				tree_test.c \
+				dictionary_test.c \
 				$(FUNCTIONS_SRCS)
-FUNCTIONS_SRCS = frequency.c list.c utils.c tree.c
+FUNCTIONS_SRCS = frequency.c list.c utils.c tree.c dictionary.c
 
 OBJS_DIR =		./obj
 OBJS	=		$(SRCS:%.c=$(OBJS_DIR)/%.o)
@@ -32,7 +33,7 @@ INCLUDE	=		-I ./ -I ../includes -I ../huffman
 
 # compilation
 CC =		gcc
-CFLAGS =	-Werror -Wextra -g
+CFLAGS =	-Wall -Werror -Wextra -g
 
 # clean
 RM =		-rm -f

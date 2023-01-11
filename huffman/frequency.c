@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:33:44 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 18:40:37 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/10 23:26:44 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,9 @@ unsigned int	*huffman_frequency(unsigned char *str)
 unsigned int	*init_frequency(void)
 {
 	unsigned int	*freq;
-	unsigned int	i;
 
-	freq = (unsigned int *)malloc(sizeof(unsigned int) * ASCII_SIZE);
-	i = 0;
-	while (i < ASCII_SIZE)
-	{
-		freq[i] = 0;
-		i++;
-	}
+	freq = (unsigned int *)calloc(ASCII_SIZE, sizeof(unsigned int));
+	if (!freq)
+		malloc_error("init_frequency");
 	return (freq);
 }

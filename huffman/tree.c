@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:07:20 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 17:57:37 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/11 00:54:55 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static t_huffman	*create_huffman_tree_node(t_huffman	*l, t_huffman *r)
 	node = (t_huffman *)malloc(sizeof(t_huffman));
 	if (!node)
 		malloc_error("create_huffman_tree_node");
-	node->c = '\b';
+	//node->c = '\b';
 	node->weight = l->weight + r->weight;
 	node->next = NULL;
 	node->left = l;
@@ -54,4 +54,28 @@ t_huffman	*create_huffman_tree(t_huffman **lst)
 		huffman_lstadd_sort(lst, tree_node);
 	}
 	return (*lst);
+}
+
+int	tree_height(t_huffman *tree)
+{
+	int	left;
+	int	right;
+
+	if (tree == NULL)
+		return (-1);
+	left = tree_height(tree->left) + 1;
+	right = tree_height(tree->right) + 1;
+	if (left > right)
+		return (left);
+	return (right);
+}
+
+void	free_tree(t_huffman *tree)
+{
+	if (tree == NULL)
+		return ;
+	free_tree(tree->left);
+	free_tree(tree->right);
+	free(tree);
+	tree = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:37:27 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 18:46:41 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/10 23:33:15 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,15 @@
 # define PINK "\033[38;5;212m"
 # define END "\033[0m"
 
-# define TEST "Hello World"
-/* # define TEST "Not for the first time, an argument had broken out over \
+# define TEST1 "Hello World"
+# define TEST2 "Not for the first time, an argument had broken out over \
 				breakfast at number four, Privet Drive. Mr Vernon Dursley \
 				had been woken in early hours of the morning by a loud, \
-				hooting noise from his nephew Harry's room." */
+				hooting noise from his nephew Harry's room."
 
 void	frequency_tests(void);
 void	huffman_lst_tests(void);
 void	huffman_tree_tests(void);
+void	dictionary_tests(void);
 
 #endif

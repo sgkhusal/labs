@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 00:47:33 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 18:24:40 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/11 01:05:35 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 # define HUFFMAN_H
 
 # include "utils.h"
+# include <string.h>
 
 # define ASCII_SIZE 256
 
 typedef struct s_huffman
 {
 	int					weight;
-	char				c;
+	unsigned char		c;
 	struct s_huffman	*next;
 	struct s_huffman	*left;
 	struct s_huffman	*right;
@@ -36,5 +37,10 @@ t_huffman		*create_huffman_node(unsigned int freq, unsigned char c);
 void			huffman_lstadd_sort(t_huffman **head, t_huffman *node);
 void			free_huffman_lst(t_huffman **head);
 t_huffman		*create_huffman_tree(t_huffman **lst);
+void			free_tree(t_huffman *tree);
+
+int				tree_height(t_huffman *tree);
+char			**dictionary(t_huffman *tree);
+void			free_dictionary(char **d);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:42:12 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 18:47:22 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/11 01:05:46 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 	- Put the 2 least used characters in the bottom branches and sum their frequencies into the top branch
 	- Add the node sum back to the list, in the right order
 	- Repeat the process until you have only one character on the list
-	4. Create the encoding/translation table according with the Huffman Tree
+	4. Create the encoding/translation table according with the Huffman Tree - OK
 	5. Encode the text using the table  ***bitwise?***
 	6. Send the encoded text to the shared memory
 	7. Read the info from the decoder and display it
@@ -30,9 +30,13 @@ void	huffman_coding(void)
 {
 	unsigned int	*freq;
 	t_huffman		*head;
+	char			**d;
 
 	freq = huffman_frequency((unsigned char *)"Hello world");
 	head = create_huffman_lst(freq);
 	free(freq);
 	head = create_huffman_tree(&head);
+	d = dictionary(head);
+	free_dictionary(d);
+	free_tree(head);
 }
