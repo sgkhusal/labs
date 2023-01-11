@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:42:12 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/11 16:26:00 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:46:01 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	huffman_coding(void)
 	head = create_huffman_lst(freq);
 	free(freq);
 	head = create_huffman_tree(&head);
-	d = dictionary(head);
-	free_dictionary(d);
+	d = enconding_table(head);
+	free_enconding_table(d);
 	free_tree(head);
 }

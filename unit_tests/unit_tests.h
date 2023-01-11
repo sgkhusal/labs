@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:37:27 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 23:33:15 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:49:12 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@
 void	frequency_tests(void);
 void	huffman_lst_tests(void);
 void	huffman_tree_tests(void);
-void	dictionary_tests(void);
+void	enconding_table_tests(void);
+
+// utils
+int		check_zeros(unsigned int *result);
+void	print_frequency(unsigned int *f);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 00:47:33 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/11 01:05:35 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:46:01 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_huffman		*create_huffman_tree(t_huffman **lst);
 void			free_tree(t_huffman *tree);
 
 int				tree_height(t_huffman *tree);
-char			**dictionary(t_huffman *tree);
-void			free_dictionary(char **d);
+char			**enconding_table(t_huffman *tree);
+void			free_enconding_table(char **d);
 
 #endif

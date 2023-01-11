@@ -6,34 +6,11 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:37:07 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/11 16:23:06 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:49:31 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unit_tests.h"
-
-static	int	check_zeros(unsigned int *result)
-{
-	unsigned int	i;
-
-	i = -1;
-	while (++i < ASCII_SIZE)
-	{
-		if (result[i] != 0)
-			return (printf(RED "KO at index %d: %d" END "\n", i, result[i]));
-	}
-	printf(GREEN "OK" END "\n");
-	return (0);
-}
-
-static void	print_frequency(unsigned int *f)
-{
-	for (int i = 0; i < ASCII_SIZE; i++)
-	{
-		if (f[i] > 0)
-			printf("%d\t|%c|\t%d\n", i, i, f[i]);
-	}
-}
 
 static void	frequency_test1(void)
 {
@@ -47,7 +24,6 @@ static void	frequency_test1(void)
 		printf(GREEN "OK" END "\n");
 	else
 		printf(RED "KO" END "\n");
-	print_frequency(result);
 	free(result);
 }
 

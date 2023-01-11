@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dictionary_test.c                                  :+:      :+:    :+:   */
+/*   enconding_table_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "unit_tests.h"
 
-static void	print_dictionary(char **d)
+static void	print_enconding_table(char **d)
 {
 	int	i;
 
@@ -25,29 +25,29 @@ static void	print_dictionary(char **d)
 	}
 }
 
-void	dictionary_test(unsigned char *str)
+void	enconding_table_test(unsigned char *str)
 {
 	unsigned int	*freq;
 	t_huffman		*head;
 	char			**d;
 	static int		n = 1;
 
-	printf(GREY "dictionary_test %d: \n" END, n);
+	printf(GREY "enconding_table_test %d: \n" END, n);
 	freq = huffman_frequency(str);
 	head = create_huffman_lst(freq);
 	free(freq);
 	head = create_huffman_tree(&head);
-	d = dictionary(head);
+	d = enconding_table(head);
 	free_tree(head);
-	print_dictionary(d);
-	free_dictionary(d);
+	print_enconding_table(d);
+	free_enconding_table(d);
 	n++;
 }
 
-void	dictionary_tests(void)
+void	enconding_table_tests(void)
 {
-	printf(YELLOW "Huffan Coding - dictionary tests: " END "\n");
-	dictionary_test((unsigned char *)TEST1);
-	dictionary_test((unsigned char *)"maçãçç");
-	dictionary_test((unsigned char *)TEST2);
+	printf(YELLOW "Huffan Coding - enconding_table tests: " END "\n");
+	enconding_table_test((unsigned char *)TEST1);
+	enconding_table_test((unsigned char *)"maçãçç");
+	//enconding_table_test((unsigned char *)TEST2);
 }

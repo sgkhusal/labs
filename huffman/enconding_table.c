@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dictionary.c                                       :+:      :+:    :+:   */
+/*   enconding_table.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,57 +12,57 @@
 
 #include "huffman.h"
 
-static char	**create_dictionary(int columns)
+static char	**create_enconding_table(int columns)
 {
 	char	**d;
 	int		i;
 
 	d = (char **)malloc(sizeof(char *) * ASCII_SIZE);
 	if (!d)
-		malloc_error("create_dictionary");
+		malloc_error("create_enconding_table");
 	i = 0;
 	while (i < ASCII_SIZE)
 	{
 		d[i] = (char *)calloc(columns, sizeof(char));
 		if (!d[i])
-			malloc_error("create_dictionary - line allocation");
+			malloc_error("create_enconding_table - line allocation");
 		i++;
 	}
 	return (d);
 }
 
-static void	fill_dictionary(char **dictionary, t_huffman *branch, int columns,
+static void	fill_enconding_table(char **enconding_table, t_huffman *branch, int columns,
 							char *bits)
 {
 	char	left[columns];
 	char	right[columns];
 
 	if (branch->left == NULL && branch->right == NULL)
-		strcpy(dictionary[branch->c], bits);
+		strcpy(enconding_table[branch->c], bits);
 	else
 	{
 		strcat(strcpy(left, bits), "0");
-		fill_dictionary(dictionary, branch->left, columns, left);
+		fill_enconding_table(enconding_table, branch->left, columns, left);
 		strcat(strcpy(right, bits), "1");
-		fill_dictionary(dictionary, branch->right, columns, right);
+		fill_enconding_table(enconding_table, branch->right, columns, right);
 	}
 }
 
-char	**dictionary(t_huffman *tree)
+char	**enconding_table(t_huffman *tree)
 {
 	char	**d;
 	char	*bits;
 	int		columns;
 
 	columns = tree_height(tree) + 1;
-	d = create_dictionary(columns);
+	d = create_enconding_table(columns);
 	bits = (char *)calloc(columns, sizeof(char));
-	fill_dictionary(d, tree, columns, bits);
+	fill_enconding_table(d, tree, columns, bits);
 	free(bits);
 	return(d);
 }
 
-void	free_dictionary(char **d)
+void	free_enconding_table(char **d)
 {
 	int	i;
 

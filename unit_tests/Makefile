@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:15:28 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/11 00:28:25 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/11 16:50:37 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,12 @@ NAME =			unit_test
 
 SRCS =			main.c \
 				frequency_test.c \
+				test_utils.c \
 				list_test.c \
 				tree_test.c \
-				dictionary_test.c \
+				enconding_table_test.c \
 				$(FUNCTIONS_SRCS)
-FUNCTIONS_SRCS = frequency.c list.c utils.c tree.c dictionary.c
+FUNCTIONS_SRCS = frequency.c list.c utils.c tree.c enconding_table.c
 
 OBJS_DIR =		./obj
 OBJS	=		$(SRCS:%.c=$(OBJS_DIR)/%.o)

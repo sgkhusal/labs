@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:03:55 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/11 00:56:21 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:50:11 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,4 @@ void	huffman_tree_tests(void)
 	printf(YELLOW "Huffan Coding - tree tests: " END "\n");
 	create_huffman_tree_test((unsigned char *)TEST1);
 	tree_height_test((unsigned char *)TEST1);
-	// needs free tree and nodes
 }
