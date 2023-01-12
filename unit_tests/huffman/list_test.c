@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:11:12 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/11 16:26:17 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/11 23:54:53 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,11 @@ static void	print_lst(t_huffman	*lst)
 	t_huffman	*aux;
 
 	aux = lst;
+	if (lst == NULL)
+	{
+		printf("%p\n", lst);
+		return ;
+	}
 	printf("|");
 	while (aux)
 	{
@@ -75,13 +80,13 @@ static void	print_lst(t_huffman	*lst)
 	printf("\n");
 }
 
-static void	create_huffman_lst_test(unsigned char * str)
+static void	create_huffman_lst_test(unsigned char *str)
 {
 	unsigned int	*freq;
 	t_huffman		*head;
 	static int		n = 1;
 
-	printf(GREY "create_huffman_lst_test %d:\n" END, n);
+	printf(GREY "create_huffman_lst_test %d: |%s|\n" END, n, str);
 	freq = huffman_frequency(str);
 	head = create_huffman_lst(freq);
 	free(freq);
@@ -97,4 +102,7 @@ void	huffman_lst_tests(void)
 	huffman_lstadd_sort_test();
 	create_huffman_lst_test((unsigned char *)"Hello World");
 	create_huffman_lst_test((unsigned char *)"maçã");
+	create_huffman_lst_test((unsigned char *)"ab");
+	create_huffman_lst_test((unsigned char *)"aaaa");
+	create_huffman_lst_test((unsigned char *)"");
 }

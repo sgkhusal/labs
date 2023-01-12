@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:42:12 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/11 16:46:01 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/11 22:06:14 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,16 @@ void	huffman_coding(void)
 	unsigned int	*freq;
 	t_huffman		*head;
 	char			**d;
+	char			*comp;
 
 	freq = huffman_frequency((unsigned char *)"Hello world");
 	head = create_huffman_lst(freq);
 	free(freq);
 	head = create_huffman_tree(&head);
-	d = enconding_table(head);
-	free_enconding_table(d);
+	d = dictionary(head);
+	comp = encode(d, (unsigned char *)"Hello world");
+	printf("%s\n", comp);
+	free_dictionary(d);
+	free(comp);
 	free_tree(head);
 }

@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:07:20 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/11 00:54:55 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/11 23:12:24 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static t_huffman	*create_huffman_tree_node(t_huffman	*l, t_huffman *r)
 	node = (t_huffman *)malloc(sizeof(t_huffman));
 	if (!node)
 		malloc_error("create_huffman_tree_node");
-	//node->c = '\b';
 	node->weight = l->weight + r->weight;
 	node->next = NULL;
 	node->left = l;
