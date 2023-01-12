@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 00:47:33 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 17:15:34 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/12 18:22:26 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ unsigned char	*decode(t_huffman *tree, char *str_bit);
 
 unsigned char	*compress(char *bit_str, size_t bits);
 size_t			number_of_bits(char *bit_str);
+size_t			number_of_bytes(size_t nbits);
+char			*decompress(unsigned char *bits, size_t nbits);
 
 #endif

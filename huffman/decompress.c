@@ -1,56 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compress.c                                         :+:      :+:    :+:   */
+/*   decompress.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 00:38:26 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 18:15:29 by sguilher         ###   ########.fr       */
+/*   Created: 2023/01/12 18:01:44 by sguilher          #+#    #+#             */
+/*   Updated: 2023/01/12 18:42:19 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "huffman.h"
 
-size_t	number_of_bits(char *bit_str)
+char	*decompress(unsigned char *bits, size_t nbits)
 {
-	if (!bit_str)
-		return (0);
-	return (strlen(bit_str));
-}
-
-size_t	number_of_bytes(size_t nbits)
-{
+	char	*bit_str;
 	size_t	nbytes;
+	int		powder;
+	int		j;
 
-	nbytes = nbits / 8;
-	if (nbits % 8 != 0)
-		nbytes++;
-	return (nbytes);
-}
-
-unsigned char	*compress(char *bit_str, size_t nbits)
-{
-	unsigned char	*bits;
-	size_t			nbytes;
-	int				powder;
-	int				j;
-
+	bit_str = (char *)calloc(nbits + 1, sizeof(char));
+	if (!bit_str)
+		malloc_error("decompress function");
 	nbytes = number_of_bytes(nbits);
-	bits = (unsigned char *)calloc(nbytes + 1, sizeof(char));
-	if (!bits)
-		malloc_error("compress function");
 	for (size_t i = 0; i < nbytes; i++)
 	{
 		powder = 7;
 		j = 0;
-		while (bit_str[i * 8 + j] && j < 8)
+		while (i * 8 + j < nbits && j < 8)
 		{
-			if (bit_str[i * 8 + j] == '1')
-				bits[i] |= (unsigned char)(pow(2, powder));
+			if (bits[i] & (unsigned char)(pow(2, powder)))
+				bit_str[i * 8 + j] = '1';
+			else
+				bit_str[i * 8 + j] = '0';
 			powder--;
 			j++;
 		}
 	}
-	return (bits);
+	return (bit_str);
 }

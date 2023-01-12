@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   decode_test.c                                      :+:      :+:    :+:   */
+/*   decompress_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 22:08:55 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 19:16:36 by sguilher         ###   ########.fr       */
+/*   Created: 2023/01/12 15:18:49 by sguilher          #+#    #+#             */
+/*   Updated: 2023/01/12 18:58:14 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unit_tests.h"
 
-void	decode_test(unsigned char *str, bool print)
+void	decompress_test(unsigned char *str, char *expected)
 {
 	unsigned int	*freq;
 	t_huffman		*head;
 	char			**d;
-	unsigned char	*result;
 	char			*str_bit;
+	char			*result;
 	size_t			nbits;
 	unsigned char	*bits;
 	static int		n = 1;
 
-	printf(GREY "decode_test %d - |%s|: " END, n, str);
+	printf(GREY "compress_test %d - |%s|: " END, n, str);
 	freq = huffman_frequency(str);
 	head = create_huffman_lst(freq);
 	head = create_huffman_tree(&head);
@@ -31,15 +31,13 @@ void	decode_test(unsigned char *str, bool print)
 	str_bit = encode(d, str);
 	nbits = number_of_bits(str_bit);
 	bits = compress(str_bit, nbits);
-	free(str_bit);
-	str_bit = decompress(bits, nbits);
-	result = decode(head, str_bit);
-	if (strcmp((const char *)result, (const char *)str))
+	result = decompress(bits, nbits);
+	if (result && strcmp((char *)result, expected))
+		printf(RED "KO" END "\n");
+	else if (result == NULL && str != NULL)
 		printf(RED "KO" END "\n");
 	else
 		printf(GREEN "OK" END "\n");
-	if (print)
-		printf("result: |%s|\n", result);
 	free(freq);
 	free_tree(head);
 	free_dictionary(d);
@@ -48,15 +46,15 @@ void	decode_test(unsigned char *str, bool print)
 	n++;
 }
 
-void	decode_tests(bool print)
+void	decompress_tests(void)
 {
-	printf(YELLOW "Huffan Coding - decoding tests: " END "\n");
-	decode_test((unsigned char *)TEST1, print);
-	decode_test((unsigned char *)"Vamos aprender a programa", print);
-	decode_test((unsigned char *)"ab", print);
-	decode_test((unsigned char *)"aaaa", print);
-	decode_test((unsigned char *)"aaaaaaaaa", print);
-	decode_test((unsigned char *)"", print);
-	decode_test((unsigned char *)"maça", print);
-	decode_test((unsigned char *)"ãõáéíóàèìò", print);
+	printf(YELLOW "Huffan Coding - decompress tests: " END "\n");
+	decompress_test((unsigned char *)TEST1, "11110101010110111000011001110001");
+	decompress_test((unsigned char *)"Vamos aprender a programa",
+		"1111000110011011000011001110101100101011111110011010110001111101011101010010100110000");
+	decompress_test((unsigned char *)"ab", "01");
+	decompress_test((unsigned char *)"aaaa", "0000");
+	decompress_test((unsigned char *)"aaaaaaaaa", "000000000");
+	decompress_test((unsigned char *)"", "");
 }
+

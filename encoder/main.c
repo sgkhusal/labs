@@ -6,12 +6,11 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:25:28 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 17:42:34 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:06:51 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "encoder.h"
-#include <locale.h>
 
 /* Encoder:
 	open file
@@ -29,7 +28,6 @@
 
 int	main(void)
 {
-	setlocale(LC_ALL, "Portuguese");
 	// verificar se a string recebida é nula ou vazia e retornar
 	// mandar uma mensagem?
 	huffman_coding();

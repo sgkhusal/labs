@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:18:49 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 17:58:32 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/12 18:15:29 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	compress_test(unsigned char *str, unsigned char *expected)
 	char			**d;
 	char			*str_bit;
 	unsigned char	*result;
-	size_t			nb_bits;
+	size_t			nbits;
 	static int		n = 1;
 
 	printf(GREY "compress_test %d - |%s|: " END, n, str);
@@ -28,8 +28,8 @@ void	compress_test(unsigned char *str, unsigned char *expected)
 	head = create_huffman_tree(&head);
 	d = dictionary(head);
 	str_bit = encode(d, str);
-	nb_bits = number_of_bits(str_bit);
-	result = compress(str_bit, nb_bits);
+	nbits = number_of_bits(str_bit);
+	result = compress(str_bit, nbits);
 	if (result && strcmp((char *)result, (char *)expected))
 		printf(RED "KO" END "\n");
 	else if (result == NULL && expected != NULL)

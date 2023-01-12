@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:15:28 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/12 16:28:26 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/12 19:25:41 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,10 @@ SRCS =			main.c \
 				encode_test.c \
 				decode_test.c \
 				compress_test.c \
+				decompress_test.c \
 				$(FUNCTIONS_SRCS)
 FUNCTIONS_SRCS = frequency.c list.c utils.c tree.c dictionary.c encode.c \
-				decode.c compress.c
+				decode.c compress.c decompress.c
 
 OBJS_DIR =		./obj
 OBJS	=		$(SRCS:%.c=$(OBJS_DIR)/%.o)

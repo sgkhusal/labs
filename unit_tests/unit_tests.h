@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:37:27 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 15:57:07 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:25:10 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ void	huffman_lst_tests(void);
 void	huffman_tree_tests(void);
 void	dictionary_tests(void);
 void	encode_tests(void);
-void	decode_tests(void);
+void	decode_tests(bool print);
 void	compress_tests(void);
+void	decompress_tests(void);
 
 // utils
 int		check_zeros(unsigned int *result);
