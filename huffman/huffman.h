@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 00:47:33 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/11 17:18:43 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/12 01:29:33 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ char			**dictionary(t_huffman *tree);
 void			free_dictionary(char **d);
 
 char			*encode(char **dictionary, unsigned char *text);
+unsigned char	*decode(t_huffman *tree, char *str_bit);
 
 #endif

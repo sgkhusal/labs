@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:11:12 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/11 23:54:53 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/12 02:18:17 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ static void	create_huffman_lst_test(unsigned char *str)
 	t_huffman		*head;
 	static int		n = 1;
 
-	printf(GREY "create_huffman_lst_test %d: |%s|\n" END, n, str);
+	printf(GREY "create_huffman_lst_test %d - |%s|:\n" END, n, str);
 	freq = huffman_frequency(str);
 	head = create_huffman_lst(freq);
 	free(freq);

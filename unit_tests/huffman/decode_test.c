@@ -1,51 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   encode_test.c                                      :+:      :+:    :+:   */
+/*   decode_test.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 22:08:55 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 02:16:10 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/12 02:19:36 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unit_tests.h"
 
-void	encode_test(unsigned char *str, char *expected)
+void	decode_test(unsigned char *str)
 {
 	unsigned int	*freq;
 	t_huffman		*head;
 	char			**d;
-	char			*result;
+	unsigned char	*result;
+	char			*str_bit;
 	static int		n = 1;
 
-	printf(GREY "encode_test %d - |%s|: " END, n, str);
+	printf(GREY "decode_test %d - |%s|: " END, n, str);
 	freq = huffman_frequency(str);
 	head = create_huffman_lst(freq);
-	free(freq);
 	head = create_huffman_tree(&head);
 	d = dictionary(head);
-	free_tree(head);
-	result = encode(d, str);
-	free_dictionary(d);
-	if (result && strcmp(result, expected))
-		printf(RED "KO" END "\n");
-	else if (result == NULL && expected != NULL)
+	str_bit = encode(d, str);
+	result = decode(head, str_bit);
+	if (strcmp((const char *)result, (const char *)str))
 		printf(RED "KO" END "\n");
 	else
 		printf(GREEN "OK" END "\n");
+	free(freq);
+	free_tree(head);
+	free_dictionary(d);
 	free(result);
 	n++;
 }
 
-void	encode_tests(void)
+void	decode_tests(void)
 {
-	printf(YELLOW "Huffan Coding - encoding tests: " END "\n");
-	encode_test((unsigned char *)TEST1, "11110101010110111000011001110001");
-	encode_test((unsigned char *)"Vamos aprender a programa",
-		"1111000110011011000011001110101100101011111110011010110001111101011101010010100110000");
-	encode_test((unsigned char *)"ab", "01");
-	encode_test((unsigned char *)"aaaa", "0000");
-	encode_test((unsigned char *)"", NULL);
+	printf(YELLOW "Huffan Coding - decoding tests: " END "\n");
+	decode_test((unsigned char *)TEST1);
+	decode_test((unsigned char *)"Vamos aprender a programa");
+	decode_test((unsigned char *)"ab");
+	decode_test((unsigned char *)"aaaa");
+	decode_test((unsigned char *)"");
 }

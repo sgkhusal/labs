@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:49:04 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 00:04:29 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/12 01:54:14 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	fill_dictionary(char **dictionary, t_huffman *branch, int columns,
 	}
 }
 
-char	**dictionary_for_only_one_node(t_huffman *tree) // pode ser que isso bugue
+static char	**dictionary_for_only_one_node(t_huffman *tree) // pode ser que isso bugue
 {
 	char	**d;
 	char	*bits;

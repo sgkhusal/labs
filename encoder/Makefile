@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:09:19 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/11 17:16:33 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/12 01:37:50 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME =		encoder.out
 
 SRCS =		main.c $(HUFFMAN)
 HUFFMAN =	huffman_coding.c frequency.c list.c utils.c tree.c \
-			dictionary.c encode.c
+			dictionary.c encode.c decode.c
 OBJS_DIR =	./obj
 OBJS	=	$(SRCS:%.c=$(OBJS_DIR)/%.o)
 

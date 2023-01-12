@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:03:55 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/11 23:52:10 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/12 02:17:42 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	create_huffman_tree_test(unsigned char *str)
 	t_huffman		*head;
 	static int		n = 1;
 
-	printf(GREY "create_huffman_tree_test %d: |%s|\n" END, n, str);
+	printf(GREY "create_huffman_tree_test %d - |%s|:\n" END, n, str);
 	freq = huffman_frequency(str);
 	head = create_huffman_lst(freq);
 	free(freq);
@@ -52,7 +52,7 @@ void	tree_height_test(unsigned char *str, int expected)
 	int				result;
 	static int		n = 1;
 
-	printf(GREY "tree_height_test %d: " END, n);
+	printf(GREY "tree_height_test %d - |%s|: " END, n, str);
 	freq = huffman_frequency(str);
 	head = create_huffman_lst(freq);
 	free(freq);

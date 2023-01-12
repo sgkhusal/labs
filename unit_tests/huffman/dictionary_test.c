@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:22:31 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 00:02:52 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/12 02:17:05 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	dictionary_test1(void)
 	t_huffman		*head;
 	char			**d;
 
-	printf(GREY "dictionary_test 1: " END);
+	printf(GREY "dictionary_test 1 - |%s|: " END, TEST1);
 	freq = huffman_frequency((unsigned char *)TEST1);
 	head = create_huffman_lst(freq);
 	free(freq);
@@ -61,7 +61,7 @@ void	dictionary_test(unsigned char *str)
 	char			**d;
 	static int		n = 2;
 
-	printf(GREY "dictionary_test %d: \n" END, n);
+	printf(GREY "dictionary_test %d - |%s|:\n" END, n, str);
 	freq = huffman_frequency(str);
 	head = create_huffman_lst(freq);
 	free(freq);
@@ -79,7 +79,7 @@ void	dictionary_tests(void)
 	dictionary_test1();
 	dictionary_test((unsigned char *)"maçãçç");
 	dictionary_test((unsigned char *)"ab");
-	dictionary_test((unsigned char *)"aaaa"); // failing
+	dictionary_test((unsigned char *)"aaaa");
 	dictionary_test((unsigned char *)"");
 	//dictionary_test((unsigned char *)TEST2);
 }

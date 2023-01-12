@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:38:26 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/11 22:36:10 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/12 01:44:58 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int	main(void)
 	huffman_tree_tests();
 	dictionary_tests();
 	encode_tests();
+	decode_tests();
 	return (0);
 }
