@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:09:19 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/12 01:37:50 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/12 12:50:16 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME =		encoder.out
 
 SRCS =		main.c $(HUFFMAN)
 HUFFMAN =	huffman_coding.c frequency.c list.c utils.c tree.c \
-			dictionary.c encode.c decode.c
+			dictionary.c encode.c decode.c compress.c
 OBJS_DIR =	./obj
 OBJS	=	$(SRCS:%.c=$(OBJS_DIR)/%.o)
 
@@ -27,6 +27,7 @@ INCLUDE	=	-I./ -I../includes -I../huffman
 # compilation
 CC =		gcc
 CFLAGS =	-Wall -Werror -Wextra -g
+MATH =		-lm
 
 # clean
 RM =		-rm -f
@@ -46,7 +47,7 @@ $(OBJS_DIR)/%.o:	%.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
 
 $(NAME):	$(OBJS_DIR) $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(MATH)
 	@echo "$(GREEN)"
 	@echo "$(YELLOW)encoder.out created$(RESET)"
 	@echo "------------------------------------------------------------------"

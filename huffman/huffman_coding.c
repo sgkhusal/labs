@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:42:12 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 02:11:14 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/12 17:41:12 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@
 	- Add the node sum back to the list, in the right order
 	- Repeat the process until you have only one character on the list
 	4. Create the encoding/translation table according with the Huffman Tree - OK
-	5. Encode the text using the table  ***bitwise?***
-	6. Send the encoded text to the shared memory
-	7. Read the info from the decoder and display it
+	5. Encode the text using the table - OK
+	6. Decode the str of bits using the tree - OK
+	7. Compression - transform the str of bits into real bits - OK
+	8. Decompression - transform the bits into the string of bits
 	close file
 	*/
 
@@ -32,14 +33,20 @@ void	huffman_coding(void)
 	t_huffman		*head;
 	char			**d;
 	char			*str_bit;
+	size_t			nb_bits;
+	unsigned char	*bits;
 	unsigned char	*str;
 
-	freq = huffman_frequency((unsigned char *)"Hello world");
+	freq = huffman_frequency((unsigned char *)"Hello World");
 	head = create_huffman_lst(freq);
 	head = create_huffman_tree(&head);
 	d = dictionary(head);
-	str_bit = encode(d, (unsigned char *)"Hello world");
+	str_bit = encode(d, (unsigned char *)"Hello World");
 	printf("%s\n", str_bit);
+	nb_bits = number_of_bits(str_bit);
+	bits = compress(str_bit, nb_bits);
+	//(void)bits;
+	printf("%s\n", bits);
 	str = decode(head, str_bit);
 	printf("%s\n", str);
 	free(freq);

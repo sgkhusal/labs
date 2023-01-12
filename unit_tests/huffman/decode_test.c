@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 22:08:55 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 02:19:36 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/12 17:58:24 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	decode_test(unsigned char *str)
 	free(freq);
 	free_tree(head);
 	free_dictionary(d);
+	free(str_bit);
 	free(result);
 	n++;
 }

@@ -6,13 +6,13 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:44:11 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/11 23:37:50 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/12 17:40:55 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "huffman.h"
 
-static size_t	str_compression_size(char **dictionary, unsigned char *text)
+static size_t	str_encode_size(char **dictionary, unsigned char *text)
 {
 	int		i;
 	size_t	size;
@@ -40,9 +40,9 @@ char	*encode(char **dictionary, unsigned char *text)
 	size_t	size;
 	char	*bit_str;
 
-	if (text[0] == '\0' || dictionary == NULL)
-		return NULL;
-	size = str_compression_size(dictionary, text);
+	if (text[0] == '\0')
+		return (NULL);
+	size = str_encode_size(dictionary, text);
 	bit_str = (char *)calloc(size, sizeof(char));
 	if (!bit_str)
 		malloc_error("encode function");
