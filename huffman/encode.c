@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:44:11 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 17:40:55 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/13 18:48:22 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static size_t	str_encode_size(char **dictionary, unsigned char *text)
 	return (size + 1);
 }
 
-char	*encode(char **dictionary, unsigned char *text)
+char	*huffman_encode(char **dictionary, unsigned char *text)
 {
 	int		i;
 	size_t	size;

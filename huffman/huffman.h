@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 00:47:33 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 18:22:26 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:33:43 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ int				tree_height(t_huffman *tree);
 char			**dictionary(t_huffman *tree);
 void			free_dictionary(char **d);
 
-char			*encode(char **dictionary, unsigned char *text);
-unsigned char	*decode(t_huffman *tree, char *str_bit);
+char			*huffman_encode(char **dictionary, unsigned char *text);
+unsigned char	*huffman_decode(t_huffman *tree, char *str_bit);
 
-unsigned char	*compress(char *bit_str, size_t bits);
+char			*huffman_compress(char *bit_str, size_t bits);
 size_t			number_of_bits(char *bit_str);
 size_t			number_of_bytes(size_t nbits);
-char			*decompress(unsigned char *bits, size_t nbits);
+char			*huffman_decompress(unsigned char *bits, size_t nbits);
 
 #endif

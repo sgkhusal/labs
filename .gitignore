@@ -3,10 +3,12 @@
 obj
 
 # Executables
-compression_analysis
+cmpanalyzer
 unit_test
 *.bin
 *.out
 
 #others
 .vscode
+
+studies

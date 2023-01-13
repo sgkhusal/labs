@@ -6,13 +6,13 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 18:01:44 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 18:42:19 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:15:34 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "huffman.h"
 
-char	*decompress(unsigned char *bits, size_t nbits)
+char	*huffman_decompress(unsigned char *bits, size_t nbits)
 {
 	char	*bit_str;
 	size_t	nbytes;

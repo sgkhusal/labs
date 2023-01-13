@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   analysis.h                                         :+:      :+:    :+:   */
+/*   cmpanalyser.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:53:43 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/13 15:58:27 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:42:43 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@
 # include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <sys/wait.h>
 
-# include "interface.h"
 # include "texts.h"
 
-int	analysis(void);
 
 #endif

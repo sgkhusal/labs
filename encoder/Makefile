@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:09:19 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/13 16:19:38 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/13 19:29:14 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,16 @@ NAME =		encoder.bin
 
 # INPUTS
 
-SRCS =		main.c encoder.c $(HUFFMAN) $(UTILS)
+SRCS =		main.c encoder.c $(HUFFMAN) $(UTILS) $(SHMEM)
 HUFFMAN =	frequency.c list.c tree.c dictionary.c encode.c compress.c
+SHMEM =		shared_memory.c
 UTILS =		error.c
 OBJS_DIR =	./obj
 OBJS	=	$(SRCS:%.c=$(OBJS_DIR)/%.o)
 
-HEADERS	=	encoder.h huffman.h utils.h
-VPATH	=	../huffman ../utils
-INCLUDE	=	-I./ -I../utils -I../huffman
+HEADERS	=	encoder.h huffman.h utils.h shared_memory.h
+VPATH	=	../huffman ../utils ../shared_memory
+INCLUDE	=	-I./ -I../utils -I../huffman -I../shared_memory
 
 # compilation
 CC =		gcc

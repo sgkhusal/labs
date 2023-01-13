@@ -1,33 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   analysis.c                                         :+:      :+:    :+:   */
+/*   cmpanalyser.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 10:50:42 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/13 12:39:08 by sguilher         ###   ########.fr       */
+/*   Created: 2023/01/13 11:40:00 by sguilher          #+#    #+#             */
+/*   Updated: 2023/01/13 16:46:58 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cmpanalyser.h"
 /* O desafio consiste no desenvolvimento de uma aplicação de análise e
 compressão de dados. Essa aplicação utilizará o algoritmo de compressão Huffman
 e poderá receber múltiplos dados onde, uma vez que comprimido deve ser
 descomprimido e coletar informações pertinentes para a análise do processo e
 dado. */
 
-#include "analysis.h"
+/* int	execute_encoder(char *strs[]) {
 
-int	analysis(void)
+} */
+
+int	main(int argc, char *argv[])
 {
+	int	child_pid;
+	int	check;
 
-	printf("Analysis\n");
+	if (argc == 1)
+	{
+		printf("No data received\n");
+		return (1);
+	}
+	printf("%s\n", argv[argc - 1]);
+	child_pid = fork();
+	if (child_pid == 0) {
 
-	// fork para executar o encoder
-	// fork para executar o decoder
-	// pipes para mínima funcionalidade
+		check = execl("./encoder/encoder.bin", "encoder.bin", "Hello World", NULL);
+		if (check == -1)
+			dprintf(2, "Error on encoder execution\n");
+		exit(1);
+	}
+	child_pid = fork();
+	if (child_pid == 0) {
+		check = execl("./decoder/decoder.bin", "decoder.bin", NULL);
+		if (check == -1)
+			dprintf(2, "Error on decoder execution\n");
+		exit(1);
+	}
 
 	// parte 2: implementar shared memory
 	// parte 3: implementar flag de arquivos
+	wait(NULL);
+	wait(NULL);
 	return (0);
 }
