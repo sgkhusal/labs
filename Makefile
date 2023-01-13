@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:09:19 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/13 12:38:13 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/13 13:22:22 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ OBJS_DIR =		./obj
 OBJS	=		$(SRCS:%.c=$(OBJS_DIR)/%.o)
 
 HEADERS	=		huffman.h
-VPATH	=		./huffman
+VPATH	=		./huffman src
 INCLUDE	=		-I./ -I./includes -I./utils -I./encoder
 
 # compilation
