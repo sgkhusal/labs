@@ -1,4 +1,10 @@
-# Development of a Data Analysis and Compression Application
+# Cmpanalyzer
+
+The aim of this project is to create a data analysis and compression application. It is the challenge for the admission process to 42 Labs, from [42 São Paulo](https://github.com/42sp).
+
+You can see the challenge proposal [here](https://github.com/42sp/42labs-selection-process-v4-sgkhusal/blob/master/Instructions.md) and the board project used for planning [here](https://github.com/users/sgkhusal/projects/3/views/1).
+
+The project was developed in Linux OS. You can see the instructions to run it [here](https://github.com/42sp/42labs-selection-process-v4-sgkhusal/edit/master/README.md#how-to-run-the-cmpanalyzer)
 
 ## Concepts
 
@@ -78,9 +84,16 @@ For the decompress process we have the following steps:
 
 ### 4. Use of shared memory between programs
 
+One of the requisites of this challenge is that the two independent programs, `encoder` and `decoder` must communicate through shared memory.
+
+For that happen, one of the process (the enconder) needs to create the block of shared memory and the other (the decoder) needs to attach it to that shared memory. The enconder designates a file and associates the block of shared memory wiht that file. But we are accessing the file content, it is used only as a reference to get access to the shared memory.
+
 ### Sources:
 1. [encoding and decoding](https://www.techtarget.com/searchnetworking/definition/encoding-and-decoding)
 2. [Data compression](https://en.wikipedia.org/wiki/Data_compression)
 3. [How Computers Compress Text: Huffman Coding and Huffman Trees](https://www.youtube.com/watch?v=JsTptu56GM8)
 4. [Huffman Coding](https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/)
 5. [Como comprimir dados com Código de Huffman](https://www.youtube.com/watch?v=o8UPZ_KDWdU&list=PLqJK4Oyr5WShtxF1Ch3Vq4b1Dzzb-WxbP&index=1)
+6. [How to Set up Shared Memory in Your Linux and MacOS Programs](https://www.youtube.com/watch?v=WgVSq-sgHOc)
+
+## How to run the cmpanalyzer
