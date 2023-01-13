@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:15:28 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/12 19:25:41 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/13 13:45:13 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS =			main.c \
 				compress_test.c \
 				decompress_test.c \
 				$(FUNCTIONS_SRCS)
-FUNCTIONS_SRCS = frequency.c list.c utils.c tree.c dictionary.c encode.c \
+FUNCTIONS_SRCS = frequency.c list.c error.c tree.c dictionary.c encode.c \
 				decode.c compress.c decompress.c
 
 OBJS_DIR =		./obj
@@ -34,8 +34,8 @@ OBJS	=		$(SRCS:%.c=$(OBJS_DIR)/%.o)
 HEADERS	=		unit_tests.h
 
 VPATH_FUNCTIONS =	../huffman
-VPATH	=		$(VPATH_FUNCTIONS) huffman includes
-INCLUDE	=		-I ./ -I ../includes -I ../huffman
+VPATH	=		$(VPATH_FUNCTIONS) huffman ../utils
+INCLUDE	=		-I ./ -I ../utils -I ../huffman
 
 # compilation
 CC =		gcc

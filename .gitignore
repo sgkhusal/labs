@@ -5,8 +5,8 @@ obj
 # Executables
 compression_analysis
 unit_test
-encoder.out
-decoder.out
+*.bin
+*.out
 
 #others
 .vscode

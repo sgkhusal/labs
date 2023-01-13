@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:09:19 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/13 13:22:22 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/13 15:47:53 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ all:	$(NAME)
 $(OBJS_DIR)/%.o:	%.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
 
-$(NAME):	$(ENCODER) $(OBJS_DIR) $(OBJS)
+$(NAME):	$(ENCODER) $(DECODER) $(OBJS_DIR) $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $(OBJS)
 	@echo "$(GREEN)"
 	@echo "************************************"
@@ -62,6 +62,9 @@ $(OBJS_DIR):
 $(ENCODER):
 	$(MAKE) --no-print-directory -C $(ENCODER_PATH)
 
+$(DECODER):
+	$(MAKE) --no-print-directory -C $(DECODER_PATH)
+
 test:
 		@$(MAKE) --no-print-directory -C ./unit_tests test
 
@@ -72,6 +75,7 @@ clean:
 fclean:		clean
 		$(RM) $(NAME)
 		@$(MAKE) --no-print-directory -C $(ENCODER_PATH) fclean
+		@$(MAKE) --no-print-directory -C $(DECODER_PATH) fclean
 		@$(MAKE) --no-print-directory -C $(UNIT_TESTS_PATH) fclean
 
 re:			fclean all

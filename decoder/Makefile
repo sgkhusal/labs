@@ -5,22 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/10 10:09:19 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/13 16:19:38 by sguilher         ###   ########.fr        #
+#    Created: 2023/01/13 15:41:27 by sguilher          #+#    #+#              #
+#    Updated: 2023/01/13 16:19:27 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		encoder.bin
+NAME =		decoder.bin
 
 # INPUTS
 
-SRCS =		main.c encoder.c $(HUFFMAN) $(UTILS)
-HUFFMAN =	frequency.c list.c tree.c dictionary.c encode.c compress.c
+SRCS =		main.c decoder.c $(HUFFMAN) $(UTILS)
+HUFFMAN =	frequency.c list.c tree.c decode.c decompress.c compress.c
 UTILS =		error.c
 OBJS_DIR =	./obj
 OBJS	=	$(SRCS:%.c=$(OBJS_DIR)/%.o)
 
-HEADERS	=	encoder.h huffman.h utils.h
+HEADERS	=	decoder.h huffman.h utils.h
 VPATH	=	../huffman ../utils
 INCLUDE	=	-I./ -I../utils -I../huffman
 
@@ -49,7 +49,7 @@ $(OBJS_DIR)/%.o:	%.c $(HEADERS)
 $(NAME):	$(OBJS_DIR) $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $(OBJS) $(MATH)
 	@echo "$(GREEN)"
-	@echo "$(YELLOW)encoder.bin created$(RESET)"
+	@echo "$(YELLOW)decoder.bin created$(RESET)"
 	@echo "------------------------------------------------------------------"
 
 $(OBJS_DIR):

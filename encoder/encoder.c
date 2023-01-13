@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:25:28 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/13 12:03:41 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:28:38 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 	read file
 	1. Aplly the translation table */
 
-int	encoder(int nstrs, unsigned char **strs)
+int	encoder(unsigned char *strs)
 {
 	unsigned char	*initial_str;
 	unsigned int	*freq;
@@ -39,7 +39,7 @@ int	encoder(int nstrs, unsigned char **strs)
 	// verificar se a string recebida é nula -> transformar em ""
 	// juntar as strings
 	printf("********** Initial string **********\n");
-	initial_str = strs[1];
+	initial_str = strs;
 	printf("%s\n\n", initial_str);
 
 	freq = huffman_frequency(initial_str);
@@ -56,6 +56,11 @@ int	encoder(int nstrs, unsigned char **strs)
 	bits = compress(str_bit, nbits);
 	printf("%s\n\n", bits);
 
-	(void)nstrs;
+	free(freq);
+	free_tree(head);
+	free_dictionary(d);
+	free(str_bit);
+	free(bits);
+	//(void)nstrs;
 	return (0);
 }
