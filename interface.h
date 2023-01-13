@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   interface.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 11:41:30 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/13 11:59:38 by sguilher         ###   ########.fr       */
+/*   Created: 2023/01/13 11:34:11 by sguilher          #+#    #+#             */
+/*   Updated: 2023/01/13 11:35:56 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "encoder.h"
+#ifndef INTERFACE_H
+# define INTERFACE_H
 
-int	main(int argc, char *argv[])
-{
-	// verificar se a string recebida é nula ou vazia e retornar
-	// mandar uma mensagem?
-	if (argc == 1)
-	{
-		printf("No data received\n");
-		return (encoder(0, NULL));
-	}
-	return (encoder(argc - 1, (unsigned char **)&argv[1]));
-}
+# define ENCODER "encoder"
+# define DECODER "decoder"
+# define ENCODER_PATH "./encoder/encoder"
+# define DECODER_PATH "./decoder/decoder"
+
+#endif

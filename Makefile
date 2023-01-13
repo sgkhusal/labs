@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:09:19 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/10 17:52:47 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/13 12:38:13 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,13 +19,13 @@ UNIT_TESTS_PATH =	./unit_tests
 
 # INPUTS
 
-SRCS =			main.c
+SRCS =			main.c analysis.c
 OBJS_DIR =		./obj
 OBJS	=		$(SRCS:%.c=$(OBJS_DIR)/%.o)
 
 HEADERS	=		huffman.h
 VPATH	=		./huffman
-INCLUDE	=		-I./ -I./includes -I./huffman -I./encoder
+INCLUDE	=		-I./ -I./includes -I./utils -I./encoder
 
 # compilation
 CC =		gcc

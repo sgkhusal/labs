@@ -1,34 +1,35 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    Makefile-old                                       :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:09:19 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/13 12:05:07 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/13 12:25:45 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		encoder.out
+NAME =				compression_analysis
+ENCODER =			./encoder/encoder
+DECODER =			./decoder/decoder
+ENCODER_PATH =		./encoder
+DECODER_PATH =		./decoder
+UNIT_TESTS_PATH =	./unit_tests
 
 # INPUTS
 
-SRCS =		main.c encoder.c $(HUFFMAN) $(UTILS)
-HUFFMAN =	huffman_coding.c frequency.c list.c tree.c \
-			dictionary.c encode.c decode.c compress.c decompress.c
-UTILS =		error.c
-OBJS_DIR =	./obj
-OBJS	=	$(SRCS:%.c=$(OBJS_DIR)/%.o)
+SRCS =			main.c analysis.c
+OBJS_DIR =		./obj
+OBJS	=		$(SRCS:%.c=$(OBJS_DIR)/%.o)
 
-HEADERS	=	encoder.h huffman.h utils.h
-VPATH	=	../huffman ../utils
-INCLUDE	=	-I./ -I../utils -I../huffman
+HEADERS	=		analysis.h interface.h texts.h encoder.h decoder.h
+VPATH	=		analysis utils
+INCLUDE	=		-I./ -I./analysis -I./utils
 
 # compilation
 CC =		gcc
 CFLAGS =	-Wall -Werror -Wextra -g
-MATH =		-lm
 
 # clean
 RM =		-rm -f
@@ -44,24 +45,35 @@ RESET	=	\033[0m
 
 all:	$(NAME)
 
+$(NAME):	$(ENCODER) $(OBJS_DIR) $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $(OBJS)
+	@echo "$(GREEN)"
+	@echo "************************************"
+	@echo "    compression_analysis created"
+	@echo "************************************"
+	@echo "$(RESET)"
+
 $(OBJS_DIR)/%.o:	%.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
-
-$(NAME):	$(OBJS_DIR) $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(MATH)
-	@echo "$(GREEN)"
-	@echo "$(YELLOW)encoder.out created$(RESET)"
-	@echo "------------------------------------------------------------------"
 
 $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
 
+$(ENCODER):
+	$(MAKE) --no-print-directory -C $(ENCODER_PATH)
+
+test:
+		@$(MAKE) --no-print-directory -C ./unit_tests test
+
 clean:
 		$(RM_DIR) $(OBJS_DIR)
+		@$(MAKE) --no-print-directory -C $(ENCODER_PATH) clean
 
 fclean:		clean
 		$(RM) $(NAME)
+		@$(MAKE) --no-print-directory -C $(ENCODER_PATH) fclean
+		@$(MAKE) --no-print-directory -C $(UNIT_TESTS_PATH) fclean
 
 re:			fclean all
 
-.PHONY: all clean fclean re tests
+.PHONY: all clean fclean re test
