@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:34:32 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 12:38:26 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 17:31:01 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ void			send_time(double time);
 void			send_str(unsigned char *str);
 
 void			move_on(void);
+
+void			check_if_must_stop(void);
 
 #endif

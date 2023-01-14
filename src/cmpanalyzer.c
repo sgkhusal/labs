@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:40:00 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 16:50:47 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 17:37:48 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int	main(int argc, char *argv[])
 
 	if (argc == 1)
 	{
-		printf("No data received\n");
+		printf("Error: No data received\n");
+		printf("usage - %s [\"str1\"] [\"str2\"] ... (data to compress)", argv[0]);
+		//printf("usage - %s -f [filename]", argv[0]);
 		return (1);
 	}
 	// parte 3: implementar flag de arquivos

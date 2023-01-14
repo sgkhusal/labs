@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:41:30 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 16:21:36 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 17:32:54 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,16 @@ int	main(int argc, char *argv[])
 	unsigned char	*text;
 	//bool			files;
 
+	printf("\nencoder initialized...\n");
 	if (argc == 1)
 	{
-		printf("No data received by encoder\n");
+		printf("Error: no data received by encoder\n");
 		printf("usage - %s [\"str1\"] [\"str2\"] ... (data to compress)", argv[0]);
 		//printf("usage - %s -f [filename]", argv[0]);
+		stop_decoder(true);
 		return (1); // ver como vai lidar no encoder - semáforo indicando que deu problema?
 	}
-	printf("\nencoder initialized...\n");
+	stop_decoder(false);
 	create_file();
 	clean_shared_memory();
 	// verificar se a string recebida é nula ou vazia e retornar
