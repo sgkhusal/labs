@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:18:49 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 09:49:22 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 10:27:14 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	decompress_test(unsigned char *str, char *expected)
 	str_bit = huffman_encode(d, str);
 	nbits = number_of_bits(str_bit);
 	bits = huffman_compress(str_bit, nbits);
-	result = huffman_ecompress(bits, nbits);
+	result = huffman_decompress(bits, nbits);
 	if (result && strcmp((char *)result, expected))
 		printf(RED "KO" END "\n");
 	else if (result == NULL && str != NULL)

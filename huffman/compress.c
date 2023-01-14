@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 00:38:26 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/13 23:43:32 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 10:22:26 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t	number_of_bytes(size_t nbits)
 	return (nbytes);
 }
 
-char	*huffman_compress(char *bit_str, size_t nbits)
+unsigned char	*huffman_compress(char *bit_str, size_t nbits)
 {
 	unsigned char	*bits;
 	size_t			nbytes;
@@ -52,5 +52,5 @@ char	*huffman_compress(char *bit_str, size_t nbits)
 			j++;
 		}
 	}
-	return ((char *)bits);
+	return (bits);
 }

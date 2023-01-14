@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:25:28 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 09:29:28 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 10:29:37 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	compress(unsigned char *text)
 	unsigned int	*freq;
 	char			*str_bits;
 	size_t			nbits;
-	char			*bits;
+	unsigned char	*bits;
 
 	freq = huffman_frequency(text);
 	send_freq(freq);

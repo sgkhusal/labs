@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 22:07:19 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/13 19:15:39 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 10:26:17 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ static unsigned char	*decode_for_only_one_node(unsigned char c, char *str_bit)
 
 unsigned char	*huffman_decode(t_huffman *tree, char *str_bit)
 {
-	t_huffman	*aux;
-	char		*str;
-	char		tmp[2];
-	int			i;
+	t_huffman		*aux;
+	unsigned char	*str;
+	unsigned char	tmp[2];
+	int				i;
 
 	i = 0;
 	if (tree == NULL)
@@ -46,7 +46,7 @@ unsigned char	*huffman_decode(t_huffman *tree, char *str_bit)
 		return (decode_for_only_one_node(tree->c, str_bit));
 	aux = tree;
 	tmp[1] = '\0';
-	str = (char *)calloc(strlen(str_bit) + 1, sizeof(char));
+	str = (unsigned char *)calloc(strlen(str_bit) + 1, sizeof(char));
 	if (!str)
 		malloc_error("decode function");
 	while (str_bit[i])
@@ -58,10 +58,10 @@ unsigned char	*huffman_decode(t_huffman *tree, char *str_bit)
 		if (aux->left == NULL && aux->right == NULL)
 		{
 			tmp[0] = aux->c;
-			strcat(str, tmp);
+			strcat((char *)str, (char *)tmp);
 			aux = tree;
 		}
 		i++;
 	}
-	return ((unsigned char *)str);
+	return (str);
 }
