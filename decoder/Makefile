@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 15:41:27 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/13 20:37:07 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/14 01:28:28 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME =		decoder.bin
 
 # INPUTS
 
-SRCS =		main.c decoder.c $(HUFFMAN) $(UTILS) shared_memory.c
+SRCS =		main.c decoder.c time.c $(HUFFMAN) $(UTILS) shared_memory.c
 HUFFMAN =	frequency.c list.c tree.c decode.c decompress.c compress.c
 UTILS =		error.c
 OBJS_DIR =	./obj

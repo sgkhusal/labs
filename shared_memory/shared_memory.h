@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 18:23:54 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/13 20:34:18 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 00:26:37 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdbool.h>
 
 # define BLOCK_SIZE 4096
-#define FILENAME "../shared_memory/.sharedmem" /////
+#define FILENAME ".sharedmem"
 
 int		create_shared_block(char *filename, int size, int mem_id);
 char	*attach_memory_block(int block_id);

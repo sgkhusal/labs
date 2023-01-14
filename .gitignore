@@ -8,6 +8,9 @@ unit_test
 *.bin
 *.out
 
+# tmp file
+.sharedmem
+
 #others
 .vscode
 

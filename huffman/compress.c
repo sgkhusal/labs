@@ -6,17 +6,17 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 00:38:26 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/13 19:33:19 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/13 23:43:32 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "huffman.h"
 
-size_t	number_of_bits(char *bit_str)
+size_t	number_of_bits(char *str)
 {
-	if (!bit_str)
+	if (!str)
 		return (0);
-	return (strlen(bit_str));
+	return (strlen(str));
 }
 
 size_t	number_of_bytes(size_t nbits)

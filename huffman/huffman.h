@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 00:47:33 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/13 19:33:43 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 02:26:54 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ typedef struct s_huffman
 	struct s_huffman	*right;
 }				t_huffman;
 
+typedef struct s_data
+{
+	unsigned char	*str;
+	size_t			str_nbits;
+	size_t			cmp_nbits;
+	double			time;
+}				t_data;
+
 void			huffman_coding(void);
 
 unsigned int	*huffman_frequency(unsigned char *str);
@@ -48,7 +56,7 @@ char			*huffman_encode(char **dictionary, unsigned char *text);
 unsigned char	*huffman_decode(t_huffman *tree, char *str_bit);
 
 char			*huffman_compress(char *bit_str, size_t bits);
-size_t			number_of_bits(char *bit_str);
+size_t			number_of_bits(char *str);
 size_t			number_of_bytes(size_t nbits);
 char			*huffman_decompress(unsigned char *bits, size_t nbits);
 
