@@ -6,10 +6,9 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:50:49 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/13 11:51:02 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 16:54:03 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "texts.h"
-
+#include "utils.h"
 

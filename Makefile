@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:09:19 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/13 17:00:12 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/14 17:12:39 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,12 @@ UNIT_TESTS_PATH =	./unit_tests
 
 # INPUTS
 
-SRCS =			cmpanalyzer.c
+SRCS =			cmpanalyzer.c executers.c error.c
 OBJS_DIR =		./obj
 OBJS	=		$(SRCS:%.c=$(OBJS_DIR)/%.o)
 
-HEADERS	=		huffman.h cmpanalyzer.h
-VPATH	=		./huffman src
+HEADERS	=		cmpanalyzer.h utils.h
+VPATH	=		src utils
 INCLUDE	=		-I./ -I./includes -I./utils -I./encoder
 
 # compilation
