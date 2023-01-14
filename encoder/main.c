@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:41:30 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 18:43:50 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 19:41:17 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,39 @@ static void	clean_shared_memory(void)
 	destroy_memory_block(create_shared_block(FILENAME, 0, 1));
 }
 
+unsigned char	*read_file(char *file)
+{
+	FILE			*fs;
+	unsigned char	*content;
+	long			size;
+
+	fs = fopen(file, "r");
+	if (!fs)
+		return (NULL);
+	fseek(fs, 0, SEEK_END); // manda o cursor para o final do arquivo
+	size = ftell(fs); // dá a posição atual do cursor
+	rewind(fs); // volta o cursor para o começo do arquivo
+	content = (unsigned char *)malloc(size * sizeof(char));
+	fread(content, 1, size, fs);
+	fclose(fs);
+	return (content);
+}
+
+/* unsigned char	*read_files(char **files)
+{
+	int	i;
+
+
+} */
+
 unsigned char	*get_text(char **strs)
 {
 	unsigned char	*text;
 	int				i;
 	size_t			size;
 
+	if (strcmp(strs[0], "-f") == 0)
+		return (read_file(strs[1]));
 	i = 0;
 	size = 0;
 	while (strs[i])
@@ -60,7 +87,6 @@ unsigned char	*get_text(char **strs)
 int	main(int argc, char *argv[])
 {
 	unsigned char	*text;
-	//bool			files;
 
 	printf("\nencoder initialized...\n");
 	if (argc == 1)
@@ -74,14 +100,14 @@ int	main(int argc, char *argv[])
 	}
 	create_file();
 	clean_shared_memory();
-	//text = get_text(&argv[1]);
+	text = get_text(&argv[1]);
 	if (!text[0])
 	{
 		printf("encoder: error: data received is empty\n\n");
 		stop_decoder(true);
 		return (1);
 	}
-	printf("text = |%s|\n", text);
+	//printf("text = |%s|\n", text);
 	stop_decoder(false);
 	compress(text);
 	receive_data();
