@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:25:54 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 11:58:53 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 12:25:22 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ size_t			get_nbits_cmp(void);
 size_t			get_nbits_dcmp(void);
 double			get_time(void);
 unsigned char	*get_str(void);
+
+void			wait_semaphore(void);
 
 #endif

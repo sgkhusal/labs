@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   semaphore.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 11:41:30 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 12:38:46 by sguilher         ###   ########.fr       */
+/*   Created: 2023/01/14 12:15:29 by sguilher          #+#    #+#             */
+/*   Updated: 2023/01/14 12:34:13 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "decoder.h"
+#include "encoder.h"
 
-int	main(void)
+void	wait_semaphore(void)
 {
-	t_data	data;
+	int	block_id;
+	int	*semaphore;
 
-	printf("Initializing decoder...\n");
-	data = decompress();
-	send_nbits_cmp(data.nbits_cmp);
-	send_nbits_dcmp(data.nbits_dcmp);
-	send_time(data.time);
-	send_str(data.str);
-	move_on();
-	return (0);
+	block_id = create_shared_block(FILENAME, sizeof(int), 7);
+	semaphore = (int *)attach_memory_block(block_id);
+	if (semaphore == NULL)
+		shared_memory_error("send_nbits in encoder");
+	*semaphore = 0;
+
+	while (!(*semaphore))
+		sleep(1);
+
+	dettach_memory_block((char *)semaphore);
+	destroy_memory_block(block_id);
 }

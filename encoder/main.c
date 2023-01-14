@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:41:30 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 12:00:34 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 12:25:38 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int argc, char *argv[])
 	text = (unsigned char *)argv[1];
 
 	compress(text);
-	sleep(5);
+	wait_semaphore();
 	//get_data_from_decoder();
 	t_data	data;
 	data.nbits_cmp = get_nbits_cmp();

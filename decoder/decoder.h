@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:34:32 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 11:30:20 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 12:38:26 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ void			send_nbits_cmp(size_t nbits_cmp);
 void			send_nbits_dcmp(size_t nbits_dcmp);
 void			send_time(double time);
 void			send_str(unsigned char *str);
+
+void			move_on(void);
 
 #endif

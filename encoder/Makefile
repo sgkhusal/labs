@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:09:19 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/14 09:30:41 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/14 12:20:57 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME =		encoder.bin
 
 # INPUTS
 
-SRCS =		main.c encoder.c send.c get.c $(HUFFMAN) $(UTILS) $(SHMEM)
+SRCS =		main.c encoder.c send.c get.c semaphore.c \
+			$(HUFFMAN) $(UTILS) $(SHMEM)
 HUFFMAN =	frequency.c list.c tree.c dictionary.c encode.c compress.c
 SHMEM =		shared_memory.c
 UTILS =		error.c

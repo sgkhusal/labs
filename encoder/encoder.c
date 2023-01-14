@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:25:28 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 10:29:37 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 12:15:08 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ char	*encode(unsigned char *text, unsigned int *freq)
 	free_dictionary(d);
 	return (str_bit);
 }
-
-
 
 void	compress(unsigned char *text)
 {
