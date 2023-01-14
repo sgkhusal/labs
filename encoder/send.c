@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 09:28:24 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 11:07:29 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 15:33:19 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	send_freq(unsigned int *freq)
 	int		block_id;
 	char	*shared_memory;
 
-	block_id = create_shared_block(FILENAME, sizeof(unsigned int) * ASCII_SIZE, 0); // arrumar o tamanho
+	block_id = create_shared_block(FILENAME, sizeof(unsigned int) * ASCII_SIZE, 0);
 	shared_memory = attach_memory_block(block_id);
 	if (shared_memory == NULL)
 		shared_memory_error("send_freq in encoder");
@@ -30,12 +30,10 @@ void	send_nbits(size_t nbits)
 	int		block_id;
 	size_t	*shared_memory;
 
-	printf("nbits: %lu\n", nbits);
-	block_id = create_shared_block(FILENAME, sizeof(size_t), 1); // arrumar o tamanho
+	block_id = create_shared_block(FILENAME, sizeof(size_t), 1);
 	shared_memory = (size_t *)attach_memory_block(block_id);
 	if (shared_memory == NULL)
 		shared_memory_error("send_nbits in encoder");
-	//memcpy(shared_memory, &nbits, sizeof(size_t));
 	*shared_memory = nbits;
 	dettach_memory_block((char *)shared_memory);
 }
