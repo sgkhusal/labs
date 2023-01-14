@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 09:28:20 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 16:21:01 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:40:13 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static size_t	get_nbits_cmp(void)
 	block_id = create_shared_block(FILENAME, 0, 3);
 	shared_memory = (size_t *)attach_memory_block(block_id);
 	if (shared_memory == NULL)
-		shared_memory_error("get_nbits_cmp in encoder");
+		shared_memory_error("encoder: get_nbits_cmp");
 	nbits_cmp = *shared_memory;
 	dettach_memory_block((char *)shared_memory);
 	destroy_memory_block(block_id);
@@ -37,7 +37,7 @@ static size_t	get_nbits_dcmp(void)
 	block_id = create_shared_block(FILENAME, 0, 4);
 	shared_memory = (size_t *)attach_memory_block(block_id);
 	if (shared_memory == NULL)
-		shared_memory_error("get_nbits_dcmp in encoder");
+		shared_memory_error("encoder: get_nbits_dcmp");
 	nbits_dcmp = *shared_memory;
 	dettach_memory_block((char *)shared_memory);
 	destroy_memory_block(block_id);
@@ -53,7 +53,7 @@ static double	get_time(void)
 	block_id = create_shared_block(FILENAME, 0, 5);
 	shared_memory = (double *)attach_memory_block(block_id);
 	if (shared_memory == NULL)
-		shared_memory_error("get_time in encoder");
+		shared_memory_error("encoder: get_time");
 	time = *shared_memory;
 	dettach_memory_block((char *)shared_memory);
 	destroy_memory_block(block_id);
@@ -69,7 +69,7 @@ static unsigned char	*get_str(void)
 	block_id = create_shared_block(FILENAME, 0, 6);
 	shared_memory = (unsigned char *)attach_memory_block(block_id);
 	if (shared_memory == NULL)
-		shared_memory_error("get_nstr in encoder");
+		shared_memory_error("encoder: get_nstr");
 	str = (unsigned char *)strdup((char *)shared_memory);
 	dettach_memory_block((char *)shared_memory);
 	destroy_memory_block(block_id);
@@ -86,7 +86,7 @@ void	print_strings(unsigned char* strs)
 	printf("Data 1:\n\n");
 	while (strs[i])
 	{
-		if (strs[i] != '\a')
+		if (strs[i] != '\v')
 			printf("%c", strs[i]);
 		else
 		{

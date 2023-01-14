@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:41:30 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 17:32:54 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:43:50 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,11 @@ unsigned char	*get_text(char **strs)
 	i = 1;
 	while (strs[i])
 	{
-		strcat((char *)text, "\a");
-		strcat((char *)text, strs[i]);
+		if (strs[i][0])
+		{
+			strcat((char *)text, "\v");
+			strcat((char *)text, strs[i]);
+		}
 		i++;
 	}
 	return (text);
@@ -62,17 +65,24 @@ int	main(int argc, char *argv[])
 	printf("\nencoder initialized...\n");
 	if (argc == 1)
 	{
-		printf("Error: no data received by encoder\n");
-		printf("usage - %s [\"str1\"] [\"str2\"] ... (data to compress)", argv[0]);
-		//printf("usage - %s -f [filename]", argv[0]);
+		dprintf(2, "encoder: error: no data received by encoder\n\n");
+		dprintf(2, "usage: %s [\"content 1\"] [\"content2 2\"]... " \
+				"(data to compress)\n", argv[0]);
+		dprintf(2, "usage: %s -f [filename1] [filename2]...\n\n", argv[0]);
 		stop_decoder(true);
-		return (1); // ver como vai lidar no encoder - semáforo indicando que deu problema?
+		return (1);
 	}
-	stop_decoder(false);
 	create_file();
 	clean_shared_memory();
-	// verificar se a string recebida é nula ou vazia e retornar
-	text = get_text(&argv[1]); // caso especial: ""
+	//text = get_text(&argv[1]);
+	if (!text[0])
+	{
+		printf("encoder: error: data received is empty\n\n");
+		stop_decoder(true);
+		return (1);
+	}
+	printf("text = |%s|\n", text);
+	stop_decoder(false);
 	compress(text);
 	receive_data();
 	return (0);
