@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:35:16 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 11:03:10 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 16:23:58 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,11 @@ t_data	decompress(void)
 	freq = get_freq();
 	nbits = get_nbits();
 	bits = get_bits();
-	printf("nbits: %lu\n", nbits);
 	str_bits = huffman_decompress((unsigned char *)bits, nbits);
 	data.str = decode(str_bits, freq);
 	data.time = (double)get_delta_time(start) / 1000;
-	data.nbits_dcmp = number_of_bits((char *)data.str);
-	data.nbits_cmp = nbits;
+	data.nbits_dcmp = (strlen((char *)data.str) + 1) * 8;
+	data.nbits_cmp = number_of_bytes(nbits) * 8 + 8;
 	free(bits);
 	return (data);
 }

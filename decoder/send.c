@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 10:46:18 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 11:52:17 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 15:32:55 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	send_nbits_cmp(size_t nbits_cmp)
 	int		block_id;
 	size_t	*shared_memory;
 
-	printf("nbits_cmp: %lu\n", nbits_cmp);
 	block_id = create_shared_block(FILENAME, sizeof(size_t), 3);
 	shared_memory = (size_t *)attach_memory_block(block_id);
 	if (shared_memory == NULL)
@@ -31,7 +30,6 @@ void	send_nbits_dcmp(size_t nbits_dcmp)
 	int		block_id;
 	size_t	*shared_memory;
 
-	printf("nbits_dcmp: %lu\n", nbits_dcmp);
 	block_id = create_shared_block(FILENAME, sizeof(size_t), 4);
 	shared_memory = (size_t *)attach_memory_block(block_id);
 	if (shared_memory == NULL)
@@ -45,7 +43,6 @@ void	send_time(double time)
 	int		block_id;
 	double	*shared_memory;
 
-	printf("time: %f\n", time);
 	block_id = create_shared_block(FILENAME, sizeof(double), 5);
 	shared_memory = (double *)attach_memory_block(block_id);
 	if (shared_memory == NULL)
@@ -60,8 +57,6 @@ void	send_str(unsigned char *str)
 	char	*shared_memory;
 	size_t	size;
 
-	printf("********** String sent by decode **********\n");
-	printf("%s\n\n", str);
 	size = strlen((char *)str);
 	block_id = create_shared_block(FILENAME, sizeof(char) * size, 6);
 	shared_memory = attach_memory_block(block_id);

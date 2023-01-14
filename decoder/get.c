@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 09:41:11 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 11:40:54 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 15:33:59 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,6 @@ unsigned int	*get_freq(void)
 	if (shared_memory == NULL)
 		shared_memory_error("get_freq in decoder");
 	memcpy(freq, shared_memory, sizeof(unsigned int) * ASCII_SIZE);
-	for (int i = 0; i < ASCII_SIZE; i++) {
-		if (freq[i] > 0)
-			printf("%c - freq = %i\n", i, freq[i]);
-	}
 	dettach_memory_block(shared_memory);
 	destroy_memory_block(block_id);
 	return (freq);
@@ -44,7 +40,6 @@ size_t	get_nbits(void)
 	if (shared_memory == NULL)
 		shared_memory_error("get_nbits in decoder");
 	nbits = *shared_memory;
-	printf("nbits received: %lu\n", nbits);
 	dettach_memory_block((char *)shared_memory);
 	destroy_memory_block(block_id);
 	return (nbits);
