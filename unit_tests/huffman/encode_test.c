@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 22:08:55 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 16:32:02 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 09:48:29 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	encode_test(unsigned char *str, char *expected)
 	head = create_huffman_tree(&head);
 	d = dictionary(head);
 	free_tree(head);
-	result = encode(d, str);
+	result = huffman_encode(d, str);
 	free_dictionary(d);
 	if (result && strcmp(result, expected))
 		printf(RED "KO" END "\n");

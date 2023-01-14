@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:33:44 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 23:26:44 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 09:51:43 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 unsigned int	*huffman_frequency(unsigned char *str)
 {
 	unsigned int	*freq;
-	unsigned int	i;
+	int				i;
 
 	freq = init_frequency();
 	i = 0;
 	while (str[i])
 	{
-		freq[(unsigned char) str[i]]++;
+		freq[(unsigned char)str[i]]++;
 		i++;
 	}
 	return (freq);

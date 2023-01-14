@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:18:49 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 18:58:14 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 09:49:22 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void	decompress_test(unsigned char *str, char *expected)
 	head = create_huffman_lst(freq);
 	head = create_huffman_tree(&head);
 	d = dictionary(head);
-	str_bit = encode(d, str);
+	str_bit = huffman_encode(d, str);
 	nbits = number_of_bits(str_bit);
-	bits = compress(str_bit, nbits);
-	result = decompress(bits, nbits);
+	bits = huffman_compress(str_bit, nbits);
+	result = huffman_ecompress(bits, nbits);
 	if (result && strcmp((char *)result, expected))
 		printf(RED "KO" END "\n");
 	else if (result == NULL && str != NULL)

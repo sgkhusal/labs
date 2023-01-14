@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 00:47:33 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 02:26:54 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 09:52:49 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 typedef struct s_huffman
 {
-	int					weight;
+	unsigned int		weight;
 	unsigned char		c;
 	struct s_huffman	*next;
 	struct s_huffman	*left;

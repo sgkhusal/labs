@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 22:08:55 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 19:16:36 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 09:49:04 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ void	decode_test(unsigned char *str, bool print)
 	head = create_huffman_lst(freq);
 	head = create_huffman_tree(&head);
 	d = dictionary(head);
-	str_bit = encode(d, str);
+	str_bit = huffman_encode(d, str);
 	nbits = number_of_bits(str_bit);
-	bits = compress(str_bit, nbits);
+	bits = huffman_compress(str_bit, nbits);
 	free(str_bit);
-	str_bit = decompress(bits, nbits);
-	result = decode(head, str_bit);
+	str_bit = huffman_decompress(bits, nbits);
+	result = huffman_decode(head, str_bit);
 	if (strcmp((const char *)result, (const char *)str))
 		printf(RED "KO" END "\n");
 	else

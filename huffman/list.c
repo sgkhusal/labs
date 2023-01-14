@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:02:49 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/10 22:47:19 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 09:56:22 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	huffman_lstadd_sort(t_huffman **head, t_huffman *node)
 t_huffman	*create_huffman_lst(unsigned int *freq)
 {
 	t_huffman		*head;
-	unsigned int	i;
+	int				i;
 
 	i = 0;
 	head = NULL;
