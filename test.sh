@@ -1,5 +1,4 @@
 #!/bin/bash
 
 make
-./enconder/encoder.bin "Hello World"
-./decoder/decoder.bin
+./encoder/encoder.bin "Hello World" >out | ./decoder/decoder.bin
