@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 00:47:33 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 10:22:40 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 11:02:43 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct s_huffman
 typedef struct s_data
 {
 	unsigned char	*str;
-	size_t			str_nbits;
-	size_t			cmp_nbits;
+	size_t			nbits_dcmp;
+	size_t			nbits_cmp;
 	double			time;
 }				t_data;
 

@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:41:30 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 01:35:24 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 12:00:34 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,14 @@ int	main(int argc, char *argv[])
 	text = (unsigned char *)argv[1];
 
 	compress(text);
+	sleep(5);
 	//get_data_from_decoder();
+	t_data	data;
+	data.nbits_cmp = get_nbits_cmp();
+	data.nbits_dcmp = get_nbits_dcmp();
+	data.time = get_time();
+	data.str = get_str();
+	printf("\n\nstr received: \n%s\n", data.str);
 	// ler as infos do decoder
 	// printar as infos
 	//printf("delta time: %f s\n", data.time);
