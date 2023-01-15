@@ -7,21 +7,21 @@ You can see the challenge proposal [here](Instructions.md) and the board project
 The project was developed in Linux OS. You can see the instructions to run it [here](## 4. Sources used in the development of this program)
 
 ## Table of Contents
-1. [Concepts](##1. Concepts)
-2. [Development](#2. Development)
-3. [How to run the cmpanalyzer](#3. How to run the cmpanalyzer)
-4. [Sources used in the development of this program](#4. Sources used in the development of this program)
+1. [Concepts](#Concepts)
+2. [Development](#Development)
+3. [How to run the cmpanalyzer](#How to run the cmpanalyzer)
+4. [Sources used in the development of this program](#Sources used in the development of this program)
 
-## 1. Concepts
+## Concepts
 
 In order to do this project I had to learn some new concepts:
 
-1. [Encoding and decoding](#1. Encoding and decoding)
-2. [Data Compression](#2. Data compression)
-3. [Huffman Coding](#3. Huffman Coding)
-4. [Use of shared memory between programs](#4. Use of shared memory between programs)
+1. [Encoding and decoding](#Encoding and decoding)
+2. [Data Compression](#Data compression)
+3. [Huffman Coding](#Huffman Coding)
+4. [Use of shared memory between programs](#Use of shared memory between programs)
 
-### 1. Encoding and decoding
+### Encoding and decoding
 
 In computers, encoding is the process of putting a sequence of characters into a specialized format for efficient transmission or storage.
 
@@ -29,7 +29,7 @@ Decoding is the opposite process: the conversion of an encoded format back into 
 
 PS: these terms should not be confused with encryption and decryption, which focus on hiding and securing data. (We can encrypt data without changing the code or encode data without deliberately hiding the content.)
 
-### 2. Data compression
+### Data compression
 
 Data compression is the process of encoding information using fewer bits than the original representation.
 
@@ -44,7 +44,7 @@ A device that performs data compression is an encoder, and one that performs the
 - Lossless compression reduces bits by identifying and eliminating redundancy. For example, the sequence "AAAAAA" (6 bytes) could be represented by the sequence "6A" (only 2 bytes). No information is lost in lossless compression. Text compression has to be losslessly.
 - Lossy compression reduces bits by removing unnecessary or less important information. For example, for  music, videos and images compression some informations are not relevant and can be lost in the process.
 
-### 3. Huffman Coding
+### Huffman Coding
 
 Huffman coding is the basic foundation of modern text compression. It uses the frequencies of the charcarters in the data set to be compressed to determine variable length codes for each charcarter. Some charcarters will end up with less than 8 bits (the characters that are used very often) and others with more than 8 bits (the characters that are not used very often).
 
@@ -88,20 +88,18 @@ For the decompress process we have the following steps:
 8. Decode the string os zeros and ones into the original text. Here we use the Huffman Tree again instead of the encode table. This because it is not easy to know when a word begins or ends and we don't know how many characters are encoded. The Huffman Tree here works like magic!
 # ***********************************************put some nice picture example
 
-### 4. Use of shared memory between programs
+### Use of shared memory between programs
 
 One of the requisites of this challenge is that the two independent programs, `encoder` and `decoder` must communicate through shared memory.
 
 For that happen, one of the process (the enconder) needs to create the block of shared memory and the other (the decoder) needs to attach it to that shared memory. The enconder designates a file and associates the block of shared memory wiht that file. But we are accessing the file content, it is used only as a reference to get access to the shared memory.
 
-## 2. Development
+## Development
 
 ### Flowchart
-<p style="text-align:center;">
-  ![flowchart](assets/flowchart.png)
-</p>
+ ![flowchart](assets/flowchart.png)
 
-## 3. How to run the cmpanalyzer
+## How to run the cmpanalyzer
 
 - The program was developed and test in the Linux OS (more specifically the Windows Subsystem for Linux (WSL)) so I recomend to run it in a Linux OS
 - There is no need to install anything, just clone this repository
@@ -111,9 +109,9 @@ For that happen, one of the process (the enconder) needs to create the block of 
 2. `cd cmpanalyzer`
 3. `make`
 4. You can run it with multiples texts: `./cmpanalyzer "text 1" "text 2" ...`
-5. Or with multiple files using the `-f` flag: ``./cmpanalyzer - f filename1 path/filename2 ...`
+5. Or with multiple files using the `-f` flag: `./cmpanalyzer - f filename1 path/filename2 ...`
 
-## 4. Sources used in the development of this program:
+## Sources used in the development of this program:
 1. [encoding and decoding](https://www.techtarget.com/searchnetworking/definition/encoding-and-decoding)
 2. [Data compression](https://en.wikipedia.org/wiki/Data_compression)
 3. [How Computers Compress Text: Huffman Coding and Huffman Trees](https://www.youtube.com/watch?v=JsTptu56GM8)
