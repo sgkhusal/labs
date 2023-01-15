@@ -2,24 +2,24 @@
 
 The aim of this project is to create a data analysis and compression application. It is the challenge for the admission process to 42 Labs, from [42 São Paulo](https://github.com/42sp).
 
-You can see the challenge proposal [here](https://github.com/42sp/42labs-selection-process-v4-sgkhusal/blob/master/Instructions.md) and the board project used for planning [here](https://github.com/users/sgkhusal/projects/3/views/1).
+You can see the challenge proposal [here](Instructions.md) and the board project used for planning [here](https://github.com/users/sgkhusal/projects/3/views/1).
 
-The project was developed in Linux OS. You can see the instructions to run it [here](https://github.com/42sp/42labs-selection-process-v4-sgkhusal/edit/master/README.md#how-to-run-the-cmpanalyzer)
+The project was developed in Linux OS. You can see the instructions to run it [here](## 4. Sources used in the development of this program)
 
 ## Table of Contents
-1. [Concepts](# 1. Concepts)
-2. [Development](# 2. Development)
-3. [How to run the cmpanalyzer](# 3. How to run the cmpanalyzer)
-4. [Sources used in the development of this program](# 4. Sources used in the development of this program)
+1. [Concepts](##1. Concepts)
+2. [Development](#2. Development)
+3. [How to run the cmpanalyzer](#3. How to run the cmpanalyzer)
+4. [Sources used in the development of this program](#4. Sources used in the development of this program)
 
 ## 1. Concepts
 
 In order to do this project I had to learn some new concepts:
 
-1. [Encoding and decoding](# 1. Encoding and decoding)
-2. [Data Compression](# 2. Data compression)
-3. [Huffman Coding](# 3. Huffman Coding)
-4. [Use of shared memory between programs](# 4. Use of shared memory between programs)
+1. [Encoding and decoding](#1. Encoding and decoding)
+2. [Data Compression](#2. Data compression)
+3. [Huffman Coding](#3. Huffman Coding)
+4. [Use of shared memory between programs](#4. Use of shared memory between programs)
 
 ### 1. Encoding and decoding
 
@@ -95,6 +95,11 @@ One of the requisites of this challenge is that the two independent programs, `e
 For that happen, one of the process (the enconder) needs to create the block of shared memory and the other (the decoder) needs to attach it to that shared memory. The enconder designates a file and associates the block of shared memory wiht that file. But we are accessing the file content, it is used only as a reference to get access to the shared memory.
 
 ## 2. Development
+
+### Flowchart
+<p style="text-align:center;">
+  ![flowchart](assets/flowchart.png)
+</p>
 
 ## 3. How to run the cmpanalyzer
 
