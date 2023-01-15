@@ -10,9 +10,11 @@ The project was developed in Linux OS. You can see the instructions to run it [h
 
 ## Table of Contents
 1. [Concepts](#1._Concepts)
-2. [Development](#2._Development)
-3. [How to run the cmpanalyzer](#3._How_to_run_the_cmpanalyzer)
-4. [Sources used in the development of this program](#4._Sources_used_in_the_development_of_this_program)
+2. [Conceitual planning](#2._Conceitual_planning)
+3. [Flowchart](#3._Flowchart)
+4. [How to run the cmpanalyzer](#4._How_to_run_the_cmpanalyzer)
+5. [Conclusion](5._Conclusion)
+6. [Sources used in the development of this program](#6._Sources_used_in_the_development_of_this_program)
 
 ## 1. Concepts
 
@@ -112,9 +114,15 @@ For each kind of shared data I create a new segment of memory, according with th
 
 I also use shared memory to simulate two kinds of semaphors, which indicates to the program when the other one have sent the data and that it can read the shared memory. Otherwise the program wil try to access a shared memory that wasn't created yet and the process will end.
 
-I also use the m
+## 2. Conceitual planning
 
-## 2. Flowchart
+I decided to develop an interface to run both the programs thinking in a better user friendly solution. 
+
+The structures of folders were made thinking in different functionalities: huffman coding, shared memory handling, encoder, decoder, cmpanalyzer and utils. I tryed to aplly a little of encapsulation.
+
+I also developed some unit tests for huffman coding functions, which are in the `unit_tests` folder.
+
+## 3. Flowchart
 
 The `cpmanalyzer` program receives the input (a single and multiple strings or a single or multiple files) and make 2 [forks](https://man7.org/linux/man-pages/man2/fork.2.html) to run the `encoder` and `decoder` programs. It works like an interface to facilitate the process, but 2 programs can also be runned without the interface. The inputs are sent to the encoder only.
 
@@ -133,7 +141,7 @@ Encoder and decoder runs as follows:
  
  ![cmpanalyzer](assets/return.jpg)
 
-## 3. How to run the cmpanalyzer
+## 4. How to run the cmpanalyzer
 
 ![cmpanalyzer](assets/cmpanalyzer.gif)
 
@@ -154,7 +162,16 @@ The `cpmanalyzer`  works like an interface to facilitate running the `encoder` a
 - `./encoder/encoder.bin "text 1" "text 2" ...` or `./encoder/encoder.bin -f filename1 path/filename2 ...`
 - in a second terminal at the program root: `./decoder/decoder.bin`
 
-## 4. Sources used in the development of this program:
+### Unit tests
+To run the unit tests for Huffman Coding functions just run `make test`
+
+## 5. Conclusion
+
+With this project I have learned some new concepts, like compression and decompression using Huffman Enconding, creating and manipulating trees (which I found very useful and enjoyed a lot) and shared memory.
+
+The flow used to manipulate the data is not the best. Some of the improvements I would make would be related to data manipulation: instead of copying data from memory files, I could manipulate it just by reading them and saving intermediare data (like the strings of zeros and ones resulting from the encode and decompression process) in some temporary file. This would probably allow the program to handle larger data.
+
+## 6. Sources used in the development of this program:
 1. [encoding and decoding](https://www.techtarget.com/searchnetworking/definition/encoding-and-decoding)
 2. [Data compression](https://en.wikipedia.org/wiki/Data_compression)
 3. [How Computers Compress Text: Huffman Coding and Huffman Trees](https://www.youtube.com/watch?v=JsTptu56GM8)
