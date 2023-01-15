@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 18:23:54 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 12:56:48 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/15 00:00:22 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <sys/shm.h>
 # include <string.h>
 # include <stdbool.h>
+# include <stdio.h>
 
 # define BLOCK_SIZE 4096
 # define FILENAME "/tmp/sharedmem"

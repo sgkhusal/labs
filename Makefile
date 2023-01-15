@@ -6,7 +6,7 @@
 #    By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 10:09:19 by sguilher          #+#    #+#              #
-#    Updated: 2023/01/14 17:12:39 by sguilher         ###   ########.fr        #
+#    Updated: 2023/01/15 01:47:47 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ UNIT_TESTS_PATH =	./unit_tests
 
 # INPUTS
 
-SRCS =			cmpanalyzer.c executers.c error.c
+SRCS =			cmpanalyzer.c executers.c error.c texts.c
 OBJS_DIR =		./obj
 OBJS	=		$(SRCS:%.c=$(OBJS_DIR)/%.o)
 

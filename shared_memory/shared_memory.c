@@ -6,12 +6,12 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 18:25:28 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/13 20:33:51 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/15 00:00:13 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared_memory.h"
-#include <stdio.h>
+
 int	create_shared_block(char *filename, int size, int mem_id)
 {
 	key_t key;
@@ -24,7 +24,6 @@ int	create_shared_block(char *filename, int size, int mem_id)
 	return (shmget(key, size, 0644 | IPC_CREAT)); // onde for escrever
 }
 
-// block_id = create_shared_block(filename, size);
 char	*attach_memory_block(int block_id) {
 	char	*result;
 

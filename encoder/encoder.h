@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:25:54 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 23:13:41 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/15 02:00:27 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ void			send_freq(unsigned int *freq);
 void			send_nbits(size_t nbits);
 void			send_bits(unsigned char *bits);
 
-void			receive_data(void);
 void			wait_decoder(void);
+void			receive_data(void);
+void			print_data(t_data const data);
 
 void			init_decoder(void);
 void			stop_decoder(bool yes);

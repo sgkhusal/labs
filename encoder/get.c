@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 09:28:20 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 23:07:25 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/15 01:59:24 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,44 +74,6 @@ static unsigned char	*get_str(void)
 	dettach_memory_block((char *)shared_memory);
 	destroy_memory_block(block_id);
 	return (str);
-}
-
-void	print_strings(unsigned char* strs)
-{
-	size_t	i;
-	int		n;
-
-	i = 0;
-	n = 1;
-	printf("Data 1:\n\n");
-	while (strs[i])
-	{
-		if (strs[i] != '\v')
-			printf("%c", strs[i]);
-		else
-		{
-			n++;
-			printf("\n\n------------------------------------------------------------------\n");
-			printf("Data %d:\n\n", n);
-		}
-		i++;
-	}
-}
-
-void	print_data(t_data const data)
-{
-	printf("\n");
-	printf("------------------------------------------------------------------\n");
-	printf("            DATA RECEIVED BY ENCODER FROM DECODER\n");
-	printf("------------------------------------------------------------------\n");
-	printf("                compressed bits: \t%lu\n", data.nbits_cmp);
-	printf("              decompressed bits: \t%lu\n", data.nbits_dcmp);
-	printf("             decompression time: \t%f s\n", data.time);
-	printf("------------------------------------------------------------------\n\n");
-	printf("                      Data decompressed: \n\n");
-	print_strings(data.str);
-	printf("\n\n-------------------- compression rate: %.2f%% --------------------\n\n",
-			((double)data.nbits_cmp / (double)data.nbits_dcmp * (double)100));
 }
 
 void	receive_data(void)
