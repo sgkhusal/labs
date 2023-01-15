@@ -6,11 +6,19 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 20:55:58 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 21:24:33 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 23:45:27 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "encoder.h"
+
+static void	error_open_file(const char *filename)
+{
+	dprintf(2, "Error open file: %s\n", filename);
+	stop_decoder(true);
+	init_decoder();
+	exit(2);
+}
 
 unsigned char	*read_file(char *file)
 {
@@ -20,7 +28,7 @@ unsigned char	*read_file(char *file)
 
 	fs = fopen(file, "r");
 	if (!fs)
-		return (NULL);
+		error_open_file(file);
 	fseek(fs, 0, SEEK_END); // manda o cursor para o final do arquivo
 	size = ftell(fs); // dá a posição atual do cursor
 	rewind(fs); // volta o cursor para o começo do arquivo
@@ -29,8 +37,6 @@ unsigned char	*read_file(char *file)
 	fclose(fs);
 	return (content);
 }
-
-
 
 unsigned char	*join_strs(char **strs)
 {

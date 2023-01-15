@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:41:30 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 18:37:28 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 23:10:02 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(void)
 {
 	t_data	data;
 
+	wait_encoder();
 	printf("\ndecoder initialized...\n");
 	check_if_must_stop();
 	data = decompress();

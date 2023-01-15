@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:22:09 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 18:26:06 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 23:46:13 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,29 @@ void	check_if_must_stop(void)
 		shared_memory_error("decoder: check_if_must_stop");
 	if (*stop)
 	{
-		printf("decoder: error: no data received by encoder - decoder terminated\n\n");
+		printf("decoder: error: no data received by encoder - decoder closed\n\n");
 		dettach_memory_block((char *)stop);
 		destroy_memory_block(block_id);
 		exit(1);
 	}
 	dettach_memory_block((char *)stop);
+	destroy_memory_block(block_id);
+}
+
+void	wait_encoder(void)
+{
+	int	block_id;
+	int	*semaphore;
+
+	block_id = create_shared_block(FILENAME, sizeof(int), 9);
+	semaphore = (int *)attach_memory_block(block_id);
+	if (semaphore == NULL)
+		shared_memory_error("decoder: wait_encoder");
+	*semaphore = 0;
+
+	while (!(*semaphore))
+		sleep(1);
+
+	dettach_memory_block((char *)semaphore);
 	destroy_memory_block(block_id);
 }

@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:34:32 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 17:31:01 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 23:15:18 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 # include "huffman.h"
 # include "utils.h"
 # include "shared_memory.h"
+
 # include <sys/time.h>
+# include <unistd.h>
 
 t_data			decompress(void);
 unsigned char	*decode(char *str_bits, unsigned int *freq);
@@ -33,6 +35,7 @@ void			send_nbits_dcmp(size_t nbits_dcmp);
 void			send_time(double time);
 void			send_str(unsigned char *str);
 
+void			wait_encoder(void);
 void			move_on(void);
 
 void			check_if_must_stop(void);

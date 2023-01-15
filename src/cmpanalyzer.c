@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:40:00 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 22:54:25 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 23:16:06 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	encoder = execute_encoder(argc - 1, &argv[1]);
-	sleep(1);
 	decoder = execute_decoder();
 	encoder = wait_for_child(encoder);
 	decoder = wait_for_child(decoder);

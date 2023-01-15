@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:25:54 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 21:18:44 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 23:13:41 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ void			send_nbits(size_t nbits);
 void			send_bits(unsigned char *bits);
 
 void			receive_data(void);
-void			wait_semaphore(void);
+void			wait_decoder(void);
 
+void			init_decoder(void);
 void			stop_decoder(bool yes);
 
 #endif

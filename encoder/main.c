@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:41:30 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 21:05:53 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 23:36:36 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static void	check_argc(int argc, char *program)
 				"(data to compress)\n", program);
 		dprintf(2, "usage: %s -f [filename1] [filename2]...\n\n", program);
 		stop_decoder(true);
+		init_decoder();
 		exit (1);
 	}
 }
@@ -53,11 +54,13 @@ int	main(int argc, char *argv[])
 	{
 		printf("encoder: error: data received is empty\n\n");
 		stop_decoder(true);
+		init_decoder();
 		return (1);
 	}
-	//printf("text = |%s|\n", text);
 	stop_decoder(false);
 	compress(text);
+	printf("Aqui\n");
+	init_decoder();
 	free(text);
 	receive_data();
 	return (0);

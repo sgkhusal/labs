@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 09:28:20 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 18:40:13 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 23:07:25 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	receive_data(void)
 {
 	t_data	data;
 
-	wait_semaphore();
+	wait_decoder();
 	data.nbits_cmp = get_nbits_cmp();
 	data.nbits_dcmp = get_nbits_dcmp();
 	data.time = get_time();
