@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:25:54 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 17:26:17 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/14 21:18:44 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 # include <unistd.h>
 # include <fcntl.h>
+
+unsigned char	*get_text(char **strs);
 
 char			*encode(unsigned char *text, unsigned int *freq);
 void			compress(unsigned char *text);
