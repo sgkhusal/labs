@@ -7,12 +7,12 @@ You can see the challenge proposal [here](Instructions.md) and the board project
 The project was developed in Linux OS. You can see the instructions to run it [here](##4._Sources used in the development of this program)
 
 ## Table of Contents
-1. [Concepts](#1._Concepts)
+1. [Concepts](#Concepts)
 2. [Development](#2._Development)
 3. [How to run the cmpanalyzer](#3._How_to_run_the_cmpanalyzer)
 4. [Sources used in the development of this program](#4._Sources_used_in_the_development_of_this_program)
 
-## 1. Concepts
+## Concepts
 
 In order to do this project I had to learn some new concepts:
 
