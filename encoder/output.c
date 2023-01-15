@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 01:58:47 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/15 02:10:37 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/15 02:44:18 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,5 @@ void	print_data(t_data const data)
 	printf(BLUE "\n\n-------------------- " ORANGE "compression rate: %.2f%%" BLUE " --------------------\n\n",
 			((double)data.nbits_cmp / (double)data.nbits_dcmp * (double)100));
 	printf(RESET);
+	free(data.str);
 }

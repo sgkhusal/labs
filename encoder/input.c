@@ -6,15 +6,15 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 20:55:58 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 23:45:27 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/15 03:21:35 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "encoder.h"
 
-static void	error_open_file(const char *filename)
+static void	file_error(const char *filename, const char *error)
 {
-	dprintf(2, "Error open file: %s\n", filename);
+	dprintf(2, RED "\nencoder: %s: %s\n\n" RESET, filename, error);
 	stop_decoder(true);
 	init_decoder();
 	exit(2);
@@ -24,17 +24,22 @@ unsigned char	*read_file(char *file)
 {
 	FILE			*fs;
 	unsigned char	*content;
-	long			size;
+	unsigned long	size;
 
+	if (access(file, F_OK))
+		file_error(file, "error accessing file");
 	fs = fopen(file, "r");
-	if (!fs)
-		error_open_file(file);
+	if (fs == NULL)
+		file_error(file, "error opening file");
 	fseek(fs, 0, SEEK_END); // manda o cursor para o final do arquivo
 	size = ftell(fs); // dá a posição atual do cursor
+	if (size == MAX_L_INT)
+		file_error(file, "error reading file");
 	rewind(fs); // volta o cursor para o começo do arquivo
-	content = (unsigned char *)malloc(size * sizeof(char));
+	content = (unsigned char *)malloc(size * sizeof(char) + 1);
 	fread(content, 1, size, fs); // lê todo o conteúdo
 	fclose(fs);
+	content[size] = '\0';
 	return (content);
 }
 
@@ -72,6 +77,7 @@ unsigned char	*read_files(char **files)
 {
 	int				i;
 	unsigned char	**contents;
+	unsigned char	*text;
 
 	i = 0;
 	while (files[i])
@@ -79,14 +85,16 @@ unsigned char	*read_files(char **files)
 	contents = (unsigned char **)malloc((i + 1) * sizeof(char *));
 	if (!contents)
 		malloc_error("encoder: read_files");
-	i = 0;
-	while (files[i])
-	{
+	i = -1;
+	while (files[++i])
 		contents[i] = read_file(files[i]);
-		i++;
-	}
 	contents[i] = NULL;
-	return (join_strs((char **)contents));
+	text = join_strs((char **)contents);
+	i = -1;
+	while (contents[++i])
+		free(contents[i]);
+	free(contents);
+	return (text);
 }
 
 unsigned char	*get_text(char **strs)

@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:22:09 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 23:46:13 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/15 02:23:37 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ void	check_if_must_stop(void)
 		shared_memory_error("decoder: check_if_must_stop");
 	if (*stop)
 	{
-		printf("decoder: error: no data received by encoder - decoder closed\n\n");
+		printf(RED \
+			"\ndecoder: error: no data received by encoder - decoder closed\n\n" \
+			RESET);
 		dettach_memory_block((char *)stop);
 		destroy_memory_block(block_id);
 		exit(1);

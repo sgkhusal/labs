@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:34:32 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 23:15:18 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/15 02:58:49 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ long long		get_delta_time(long long start);
 
 unsigned int	*get_freq(void);
 size_t			get_nbits(void);
-char			*get_bits(void);
+char			*get_bits(size_t nbits);
 
 void			send_nbits_cmp(size_t nbits_cmp);
 void			send_nbits_dcmp(size_t nbits_dcmp);

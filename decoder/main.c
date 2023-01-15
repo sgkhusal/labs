@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:41:30 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/15 02:03:31 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/15 02:42:22 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int	main(void)
 	send_str(data.str);
 	printf(YELLOW "\ndecoder ended...\n" RESET);
 	move_on();
+	free(data.str);
 	return (0);
 }

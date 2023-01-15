@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:37:27 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 19:25:10 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/15 02:21:30 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,6 @@
 
 # include <stdbool.h>
 # include "huffman.h"
-
-# define YELLOW "\033[0;33m"
-# define GREY "\033[38;5;244m"
-# define PURPLE "\033[1;35m"
-# define BLUE "\033[1;34m"
-# define LIGHT_BLUE "\033[0;36m"
-# define GREEN "\033[38;5;83m"
-# define GREEN2 "\033[38;2;34;183;235m"
-# define RED "\033[38;2;222;56;43m"
-# define PINK "\033[38;5;212m"
-# define END "\033[0m"
 
 # define TEST1 "Hello World"
 # define TEST2 "Not for the first time, an argument had broken out over \

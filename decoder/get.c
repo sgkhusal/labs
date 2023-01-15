@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 09:41:11 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/14 18:12:02 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/15 03:30:45 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ size_t	get_nbits(void)
 	return (nbits);
 }
 
-char	*get_bits(void)
+char	*get_bits(size_t nbits)
 {
 	int		block_id;
 	char	*shared_memory;
@@ -55,7 +55,8 @@ char	*get_bits(void)
 	shared_memory = attach_memory_block(block_id);
 	if (shared_memory == NULL)
 		shared_memory_error("decoder: get_bits");
-	bits = strdup(shared_memory);
+	bits = (char *)malloc((nbits + 1) * sizeof(char));
+	memcpy(bits, shared_memory, sizeof(char) * (nbits + 1));
 	dettach_memory_block(shared_memory);
 	destroy_memory_block(block_id);
 	return (bits);
