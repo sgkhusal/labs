@@ -57,26 +57,33 @@ Here are the steps for the compression process:
 ![table of frequencies](assets/frequencies.jpg)
 
 2. Order them in a linked list from the least used to the most used
-# ***********************************************put some nice picture example
+
+![list](assets/list.jpg)
+
 3. Create the Huffman Tree:
 - Remove the 2 least used characters in the list (the two on the top), and create a new node for the tree and add their frequencies as the frequency (weight) of the node.
-# ***********************************************put some nice picture example
 - Add the node sum back to the list, in the sort order
-# ***********************************************put some nice picture example
+
+![tree](assets/tree_construction.jpg)
+
 - Repeat the process until you have only one node on the list
-# ***********************************************put some nice picture example
+
+![tree](assets/tree.jpg)
+
 4. Create the encode table/dictionary using the Huffman Tree - the sequence of ones and zeros for each character
 
 The Huffman Tree tells how to convert the text into ones and zeros: to know the sequence, you begin on the top and follow the path down:
 - each time you take the left hand side, write 0
 - each time you take the right hand side, write 1
 
-# ***********************************************put some nice picture example
+![tree](assets/dictionary.jpg)
 
-There is no ambiguity in Huffman Coding: the bit sequences are assigned in such a way that the bits assigned to one character is not the prefix of bits assigned to any other character. This because the variable-length bit sequences assigned to the characters are [Prefix Codes](https://en.wikipedia.org/wiki/Prefix_code).
+There is no ambiguity in Huffman Coding: the bit sequences are assigned in such a way that the bits assigned to one character is not the prefix of bits assigned to any other character. This because the variable-length bit sequences assigned to the characters are prefix codes.
 
 5. Encode the text using the encode table
-# ***********************************************put some nice picture example
+
+![tree](assets/encode.jpg)
+
 6. Compress the encoded data putting each zero and one from the encoded string into bits
 # ***********************************************put some nice picture example
 
@@ -88,7 +95,8 @@ For the decompress process we have the following steps:
 # ***********************************************put some nice picture example
 
 8. Decode the string os zeros and ones into the original text. Here we use the Huffman Tree again instead of the encode table. This because it is not easy to know when a word begins or ends and we don't know how many characters are encoded. The Huffman Tree here works like magic!
-# ***********************************************put some nice picture example
+
+![tree](assets/decode.jpg)
 
 ### Use of shared memory between programs
 
