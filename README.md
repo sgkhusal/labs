@@ -1,5 +1,7 @@
 # Cmpanalyzer
 
+![cmpanalyzer](assets/cmpanalyzer.jpg)
+
 The aim of this project is to create a data analysis and compression application. It is the challenge for the admission process to 42 Labs, from [42 São Paulo](https://github.com/42sp).
 
 You can see the challenge proposal [here](Instructions.md) and the board project used for planning [here](https://github.com/users/sgkhusal/projects/3/views/1).
@@ -121,8 +123,19 @@ Encoder and decoder runs as follows:
  ![flowchart](assets/flowchart.png)
  
  The green charts indicates the communication between `encoder` and `decoder`
+ 
+ ### The `encoder` program prints the following data that are returned by `decoder`:
+- compressed bits
+- decompressed bits
+- decompression time
+- data decompressed (separately if multiples files/strings)
+- compression rate
+ 
+ ![cmpanalyzer](assets/return.jpg)
 
 ## 3. How to run the cmpanalyzer
+
+![cmpanalyzer](assets/cmpanalyzer.gif)
 
 - The program was developed and test in the Linux OS (more specifically the Windows Subsystem for Linux (WSL)) so I recomend to run it in a Linux OS
 - There is no need to install anything, just clone this repository
