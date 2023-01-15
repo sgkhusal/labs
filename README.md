@@ -6,7 +6,7 @@ The aim of this project is to create a data analysis and compression application
 
 You can see the challenge proposal [here](Instructions.md) and the board project used for planning [here](https://github.com/users/sgkhusal/projects/3/views/1).
 
-The project was developed in Linux OS. You can see the instructions to run it [here](#4._Sources used in the development of this program)
+The project was developed in Linux OS. You can see the instructions to run it [here](#4._Sources_used_in_the_development_of_this_program)
 
 ## Table of Contents
 1. [Concepts](#1._Concepts)
