@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 20:55:58 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/15 03:21:35 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:18:10 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ unsigned char	*read_file(char *file)
 	fs = fopen(file, "r");
 	if (fs == NULL)
 		file_error(file, "error opening file");
-	fseek(fs, 0, SEEK_END); // manda o cursor para o final do arquivo
-	size = ftell(fs); // dá a posição atual do cursor
+	fseek(fs, 0, SEEK_END);
+	size = ftell(fs);
 	if (size == MAX_L_INT)
 		file_error(file, "error reading file");
-	rewind(fs); // volta o cursor para o começo do arquivo
+	rewind(fs);
 	content = (unsigned char *)malloc(size * sizeof(char) + 1);
-	fread(content, 1, size, fs); // lê todo o conteúdo
+	fread(content, 1, size, fs);
 	fclose(fs);
 	content[size] = '\0';
 	return (content);

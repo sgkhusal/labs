@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:22:31 by sguilher          #+#    #+#             */
-/*   Updated: 2023/01/12 02:17:05 by sguilher         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:18:47 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,5 @@ void	dictionary_tests(void)
 	dictionary_test((unsigned char *)"ab");
 	dictionary_test((unsigned char *)"aaaa");
 	dictionary_test((unsigned char *)"");
-	//dictionary_test((unsigned char *)TEST2);
+	dictionary_test((unsigned char *)TEST2);
 }
