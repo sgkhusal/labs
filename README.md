@@ -4,15 +4,15 @@ The aim of this project is to create a data analysis and compression application
 
 You can see the challenge proposal [here](Instructions.md) and the board project used for planning [here](https://github.com/users/sgkhusal/projects/3/views/1).
 
-The project was developed in Linux OS. You can see the instructions to run it [here](## 4. Sources used in the development of this program)
+The project was developed in Linux OS. You can see the instructions to run it [here](##4._Sources used in the development of this program)
 
 ## Table of Contents
-1. [Concepts](#Concepts)
+1. [Concepts](#1._Concepts)
 2. [Development](#Development)
-3. [How to run the cmpanalyzer](#How to run the cmpanalyzer)
-4. [Sources used in the development of this program](#Sources used in the development of this program)
+3. [How to run the cmpanalyzer](#How_to_run_the_cmpanalyzer)
+4. [Sources used in the development of this program](#Sources_used_in_the_development_of_this_program)
 
-## Concepts
+## 1. Concepts
 
 In order to do this project I had to learn some new concepts:
 
