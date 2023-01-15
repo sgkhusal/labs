@@ -6,14 +6,20 @@ You can see the challenge proposal [here](https://github.com/42sp/42labs-selecti
 
 The project was developed in Linux OS. You can see the instructions to run it [here](https://github.com/42sp/42labs-selection-process-v4-sgkhusal/edit/master/README.md#how-to-run-the-cmpanalyzer)
 
-## Concepts
+## Table of Contents
+1. [Concepts](# 1. Concepts)
+2. [Development](# 2. Development)
+3. [How to run the cmpanalyzer](# 3. How to run the cmpanalyzer)
+4. [Sources used in the development of this program](# 4. Sources used in the development of this program)
+
+## 1. Concepts
 
 In order to do this project I had to learn some new concepts:
 
-1. [Encoding and decoding](https://github.com/42sp/42labs-selection-process-v4-sgkhusal#1-encoding-and-decoding)
-2. [Data Compression](https://github.com/42sp/42labs-selection-process-v4-sgkhusal#2-data-compression)
-3. [Huffman Coding](https://github.com/42sp/42labs-selection-process-v4-sgkhusal/edit/master/README.md#3-huffman-coding)
-4. [Use of shared memory between programs](https://github.com/42sp/42labs-selection-process-v4-sgkhusal#4-use-of-shared-memory-between-programs)
+1. [Encoding and decoding](# 1. Encoding and decoding)
+2. [Data Compression](# 2. Data compression)
+3. [Huffman Coding](# 3. Huffman Coding)
+4. [Use of shared memory between programs](# 4. Use of shared memory between programs)
 
 ### 1. Encoding and decoding
 
@@ -88,12 +94,25 @@ One of the requisites of this challenge is that the two independent programs, `e
 
 For that happen, one of the process (the enconder) needs to create the block of shared memory and the other (the decoder) needs to attach it to that shared memory. The enconder designates a file and associates the block of shared memory wiht that file. But we are accessing the file content, it is used only as a reference to get access to the shared memory.
 
-### Sources:
+## 2. Development
+
+## 3. How to run the cmpanalyzer
+
+- The program was developed and test in the Linux OS (more specifically the Windows Subsystem for Linux (WSL)) so I recomend to run it in a Linux OS
+- There is no need to install anything, just clone this repository
+- Follow the steps:
+
+1. `git clone https://github.com/42sp/42labs-selection-process-v4-sgkhusal.git cmpanalyzer`
+2. `cd cmpanalyzer`
+3. `make`
+4. You can run it with multiples texts: `./cmpanalyzer "text 1" "text 2" ...`
+5. Or with multiple files using the `-f` flag: ``./cmpanalyzer - f filename1 path/filename2 ...`
+
+## 4. Sources used in the development of this program:
 1. [encoding and decoding](https://www.techtarget.com/searchnetworking/definition/encoding-and-decoding)
 2. [Data compression](https://en.wikipedia.org/wiki/Data_compression)
 3. [How Computers Compress Text: Huffman Coding and Huffman Trees](https://www.youtube.com/watch?v=JsTptu56GM8)
 4. [Huffman Coding](https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/)
 5. [Como comprimir dados com Código de Huffman](https://www.youtube.com/watch?v=o8UPZ_KDWdU&list=PLqJK4Oyr5WShtxF1Ch3Vq4b1Dzzb-WxbP&index=1)
 6. [How to Set up Shared Memory in Your Linux and MacOS Programs](https://www.youtube.com/watch?v=WgVSq-sgHOc)
-
-## How to run the cmpanalyzer
+7. Linux Programmer's Manual
