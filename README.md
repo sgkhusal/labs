@@ -53,7 +53,9 @@ Huffman coding is the basic foundation of modern text compression. It uses the f
 Here are the steps for the compression process:
 
 1. Count how many times each character is used
-# ***********************************************put some nice picture example
+
+![table of frequencies](assets/frequencies.jpg)
+
 2. Order them in a linked list from the least used to the most used
 # ***********************************************put some nice picture example
 3. Create the Huffman Tree:
