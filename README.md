@@ -87,14 +87,14 @@ There is no ambiguity in Huffman Coding: the bit sequences are assigned in such 
 ![tree](assets/encode.jpg)
 
 6. Compress the encoded data putting each zero and one from the encoded string into bits
-# ***********************************************put some nice picture example
+
+![cmpanalyzer](assets/bits.jpg)
 
 #### Decompression process
 
 For the decompress process we have the following steps:
 
 7. Decompress the data converting the bits into one string of zeros and ones. It is the reverse process from step 6.
-# ***********************************************put some nice picture example
 
 8. Decode the string os zeros and ones into the original text. Here we use the Huffman Tree again instead of the encode table. This because it is not easy to know when a word begins or ends and we don't know how many characters are encoded. The Huffman Tree here works like magic!
 
