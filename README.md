@@ -109,7 +109,8 @@ For that happen, one of the process (the enconder) needs to create the block of 
 2. `cd cmpanalyzer`
 3. `make`
 4. You can run it with multiples texts: `./cmpanalyzer "text 1" "text 2" ...`
-5. Or with multiple files using the `-f` flag: `./cmpanalyzer - f filename1 path/filename2 ...`
+5. Or with multiple files using the `-f` flag: 
+   `./cmpanalyzer - f filename1 path/filename2 ...`
 
 ## Sources used in the development of this program:
 1. [encoding and decoding](https://www.techtarget.com/searchnetworking/definition/encoding-and-decoding)
